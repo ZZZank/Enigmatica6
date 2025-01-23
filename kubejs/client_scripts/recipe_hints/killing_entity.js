@@ -8,7 +8,7 @@ const {
     /**
      * @type {{
      *  target: $ItemStackJS_[],
-     *  weapon?: $ItemStackJS_,
+     *  weapon?: $IngredientJS_,
      *  output: $ItemStackJS_[],
      *  id: string
      * }[]}
@@ -145,12 +145,12 @@ onEvent("kube_jei.register_categories", event => {
             /**
              * @type {{
              *  target: $ItemStackJS_[],
-             *  weapon: $ItemStackJS_,
+             *  weapon: $IngredientJS_,
              *  output: $ItemStackJS_[]
              * }}
              */
             const { target, weapon, output } = recipe.data
-            ingredients.setItemInputs([Item.of(weapon)].concat(target.map(i => Item.of(i))))
+            ingredients.setItemInputs([Ingredient.of(weapon)].concat(target.map(i => Item.of(i))))
             ingredients.setItemOutputs(output.map(i => Item.of(i)))
         })
         .handleLookup((layout, recipe, ingredients) => {

@@ -1,14 +1,13 @@
 // priority: 10000
 
-const block_conversion_id = new ResourceLocation('enlightened6', 'block_conversion')
+const block_conversion_id = new ResourceLocation('enlightened6', 'block_conversion');
+
+const AIR_RL = new ResourceLocation('minecraft:air');
 
 const {
     block_conversion_compiled,
     block_conversion_raw
 } = (() => {
-    const $IngredientJS = java("packages/dev/latvian/kubejs/item/ingredient/$IngredientJS")
-    const $ItemStackJS = java("packages/dev/latvian/kubejs/item/$ItemStackJS")
-
     /**
      * @type {{target:Special.Block,output:$ItemStackJS_,holding:$ItemStackJS_,id:string,
      * additional?:(e:$BlockRightClickEventJS_)=>void}[]}
@@ -97,8 +96,8 @@ const {
     /**
      * @type {{
      * [x: Special.Block]: {
-     *  holding:InstanceType<$IngredientJS>,
-     *  output: InstanceType<$ItemStackJS>,
+     *  holding: import("packages/dev/latvian/kubejs/item/ingredient/$IngredientJS").$IngredientJS,
+     *  output: import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS
      *  additional?:(e:$BlockRightClickEventJS_)=>void
      * }[]}}
      */

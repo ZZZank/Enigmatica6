@@ -29,8 +29,8 @@ block_conversion: {
             player.playSound('ping:bloop');
             event.server.runCommandSilent(`particle minecraft:explosion ${target.x} ${target.y} ${target.z}`);
 
-            target.set(air);
             player.mainHandItem.count -= 1;
+            target.set(AIR_RL);
 
             let drop = event.world.createEntity('minecraft:item');
             // @ts-ignore
@@ -39,8 +39,9 @@ block_conversion: {
             drop.setMotionY(0.2);
             drop.spawn();
 
-            if (recipe.additional) {
-                recipe.additional(event)
+            let additionalAction = recipe.additional
+            if (additionalAction) {
+                additionalAction(event)
             }
 
             event.cancel();
