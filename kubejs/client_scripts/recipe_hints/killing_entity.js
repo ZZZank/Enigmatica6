@@ -1,7 +1,18 @@
 'use strict';
 
-onEvent('recipes', (event) => {
+const {
+    killing_entity_recipes,
+    killing_entity_id
+} = (() => {
     const id_prefix = 'enlightened6:killing_entity/';
+    /**
+     * @type {{
+     *  target: $ItemStackJS_[],
+     *  weapon?: $ItemStackJS_,
+     *  output: $ItemStackJS_[],
+     *  id: string
+     * }[]}
+     */
     const recipes = [
         {
             target: [
@@ -102,59 +113,60 @@ onEvent('recipes', (event) => {
         }
     ];
 
-    recipes.forEach((recipe) => {
-        const builder = event.recipes.custommachinery.custom_machine('enlightened6:killing_entity', 1).jei();
+    recipes.forEach(recipe => {
         if (!recipe.weapon) {
-            recipe.weapon = '#forge:weapons';
+            recipe.weapon = '#forge:weapons'
         }
-        addCMRecipe(builder, {
-            inputs: recipe.target,
-            catalyst: recipe.weapon,
-            outputs: recipe.output,
-            id: recipe.id
-        });
-    });
-});
+    })
 
-onEvent('server.datapack.high_priority', (event) => {
-    const components = [
-        {
-            type: 'custommachinery:item',
-            mode: 'input',
-            id: 'catalyst'
-        }
-    ]
-        // @ts-ignore
-        .concat(new CMHelper.Grid(3, 2, 'in', 'item').setMode('input').build())
-        // @ts-ignore
-        .concat(new CMHelper.Grid(3, 2, 'out', 'item').setMode('output').build());
-    const gui = [
-        {
-            type: 'custommachinery:progress',
-            x: 18 * 4.5 - 24 / 2,
-            y: 19, //18*2-16, with additional 1 as divider
-            id: 'progress'
-        },
-        {
-            type: 'custommachinery:slot',
-            x: 18 * 4,
-            y: 0,
-            id: 'catalyst'
-        }
-    ]
-        .concat(new CMHelper.Grid(3, 2, 'in', 'slot').build())
-        .concat(new CMHelper.Grid(3, 2, 'out', 'slot').offset(18 * 6, 0).build());
+    return {
+        killing_entity_id: new ResourceLocation("enlightened6", "killing_entity"),
+        killing_entity_recipes: recipes
+    }
+})()
 
-    event.addJson('enlightened6:machines/killing_entity.json', {
-        name: {
-            text: 'Killing Entity',
-            color: 'green'
-        },
-        appearance: {},
-        tooltips: [],
-        components: components,
-        gui: gui,
-        jei: [],
-        catalysts: []
-    });
-});
+onEvent('kube_jei.register_recipes', event => {
+    const builder = event.custom(killing_entity_id)
+    killing_entity_recipes.forEach(recipe => builder.add(recipe))
+})
+
+onEvent("kube_jei.register_categories", event => {
+    const { drawables, jeiHelpers } = event
+    const arrow = drawables.arrow()
+
+    event.custom(killing_entity_id)
+        .setTitle(Text.of("Killing Entity"))
+        .setBackground(drawables.blank(180, 40))
+        .setIcon(drawables.dual(
+            drawables.ingredientItem("minecraft:iron_sword"),
+            drawables.ingredientItem("minecraft:bow")
+        ))
+        .fillIngredients((recipe, ingredients) => {
+            /**
+             * @type {{
+             *  target: $ItemStackJS_[],
+             *  weapon: $ItemStackJS_,
+             *  output: $ItemStackJS_[]
+             * }}
+             */
+            const { target, weapon, output } = recipe.data
+            ingredients.setItemInputs([Item.of(weapon)].concat(target.map(i => Item.of(i))))
+            ingredients.setItemOutputs(output.map(i => Item.of(i)))
+        })
+        .handleLookup((layout, recipe, ingredients) => {
+            const itemBuilder = layout.itemGroupBuilder;
+
+            //weapon
+            itemBuilder.addSlot(18 * 4, 0)
+            //target
+            itemBuilder.addSlotGrid(0, 0, 3, 2)
+            //output
+            itemBuilder.addSlotGrid(18 * 6, 0, 3, 2)
+                .forEach(slot => slot.setInput(false))
+
+            itemBuilder.applyIngredients(ingredients)
+        })
+        .setDrawHandler((recipe, matrixStack, mouseX, mouseY) => {
+            arrow.draw(matrixStack, 18 * 4.5 - 24 / 2, 19)
+        })
+})
