@@ -1,12 +1,12 @@
-// priority: 10000
+// priority: 1000
 
-const block_conversion_id = new ResourceLocation('enlightened6', 'block_conversion');
+const blockConvID = new ResourceLocation('enlightened6', 'block_conversion');
 
 const AIR_RL = new ResourceLocation('minecraft:air');
 
 const {
-    block_conversion_compiled,
-    block_conversion_raw
+    blockConvCompiledRecipes,
+    blockConvRawRecipes
 } = (() => {
     /**
      * @type {{target:Special.Block,output:$ItemStackJS_,holding:$ItemStackJS_,id:string,
@@ -120,7 +120,7 @@ const {
         })
     })
     return {
-        block_conversion_raw: raw,
-        block_conversion_compiled: compiled
+        blockConvRawRecipes: raw,
+        blockConvCompiledRecipes: compiled
     }
 })()
