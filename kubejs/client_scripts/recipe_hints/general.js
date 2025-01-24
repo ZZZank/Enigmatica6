@@ -56,6 +56,11 @@ onEvent("kube_jei.register_recipes", event => {
             inItems: ['minecraft:ender_pearl', 'appliedenergistics2:singularity'],
             catalyst: '#enlightened6:explosives/base',
             outItems: ['2x appliedenergistics2:quantum_entangled_singularity']
+        },
+        {
+            inItems: ['#minecraft:leaves'],
+            catalyst: 'naturesaura:gold_fiber',
+            outItems: ['naturesaura:gold_leaf']
         }
     ];
 
