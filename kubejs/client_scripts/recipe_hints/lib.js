@@ -1,6 +1,16 @@
 // priority: 1000
 
 /**
+ * arrow: width=24, height=17
+ * @param {number} start 
+ * @param {number} width 
+ * @return {number}
+ */
+function computeArrowPos(start, width) {
+    return start + width / 2 - 12
+}
+
+/**
  * @param {string} id
  */
 function KJEICategory(id) {

@@ -167,6 +167,6 @@ onEvent("kube_jei.register_categories", event => {
             itemBuilder.applyIngredients(ingredients)
         })
         .setDrawHandler((recipe, matrixStack, mouseX, mouseY) => {
-            arrow.draw(matrixStack, 18 * 4.5 - 24 / 2, 19)
+            arrow.draw(matrixStack, computeArrowPos(18 * 4, 18), 18 + 1)
         })
 })
