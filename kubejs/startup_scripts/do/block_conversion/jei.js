@@ -9,8 +9,9 @@ onEvent('kube_jei.register_categories', event => {
         .setBackground(drawables.blank(20 * 4, 18))
         .fillIngredients((recipe, ingredients) => {
             const { holding, target, output } = recipe.data
-            ingredients.setItemInputs(Ingredient.of(holding), Ingredient.of(target))
-            ingredients.setItemOutputs(Ingredient.of(output))
+
+            ingredients.setItemInputs(holding, target)
+            ingredients.setItemOutputs(output)
         })
         .handleLookup((layout, recipe, ingredients) => {
             const itemBuilder = layout.itemGroupBuilder;

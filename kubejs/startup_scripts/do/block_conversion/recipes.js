@@ -9,8 +9,13 @@ const {
     blockConvRawRecipes
 } = (() => {
     /**
-     * @type {{target:Special.Block,output:$ItemStackJS_,holding:$ItemStackJS_,id:string,
-     * additional?:(e:$BlockRightClickEventJS_)=>void}[]}
+     * @type {{
+     *  target:Special.Block,
+     *  output:$ItemStackJS_,
+     *  holding:$ItemStackJS_,
+     *  id:string,
+     *  additional?:(e:$BlockRightClickEventJS_)=>void
+     * }[]}
      */
     const raw = [
         {

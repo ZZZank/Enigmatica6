@@ -150,8 +150,8 @@ onEvent("kube_jei.register_categories", event => {
              * }}
              */
             const { target, weapon, output } = recipe.data
-            ingredients.setItemInputs([Ingredient.of(weapon)].concat(target.map(i => Item.of(i))))
-            ingredients.setItemOutputs(output.map(i => Item.of(i)))
+            ingredients.setItemInputs([weapon].concat(target))
+            ingredients.setItemOutputs(output)
         })
         .handleLookup((layout, recipe, ingredients) => {
             const itemBuilder = layout.itemGroupBuilder;
