@@ -162,11 +162,23 @@ onEvent("kube_jei.register_categories", event => {
             //inItems
             itemBuilder.addSlotGrid(0, 18, 2, 3)
             //inFluids
-            fluidBuilder.addSlotGrid(SIZE / 2, 0, 1, 2)
+            fluidBuilder.addSlot(SIZE * 0.5, 0)
+                .setShowCapacity(true)
+                .setCapacityMb(2000)
+            fluidBuilder.addSlot(SIZE * 1.5, 0)
+                .setShowCapacity(true)
+                .setCapacityMb(2000)
             //outItems
             itemBuilder.addSlotGrid(SIZE * 5, 18, 2, 3).forEach(slot => slot.setInput(false))
             //outFluids
-            fluidBuilder.addSlotGrid(SIZE * 5.5, 0, 1, 2).forEach(slot => slot.setInput(false))
+            fluidBuilder.addSlot(SIZE * 5.5, 0)
+                .setShowCapacity(true)
+                .setCapacityMb(2000)
+                .setInput(false)
+            fluidBuilder.addSlot(SIZE * 6.5, 0)
+                .setShowCapacity(true)
+                .setCapacityMb(2000)
+                .setInput(false)
 
             itemBuilder.applyIngredients(ingredients)
             fluidBuilder.applyIngredients(ingredients)
