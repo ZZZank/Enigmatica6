@@ -1,4 +1,3 @@
-'use strict';
 
 const PatchouliAPI = java('vazkii.patchouli.api.PatchouliAPI');
 // @ts-ignore
@@ -6,9 +5,9 @@ const Character = java('java.lang.Character');
 const Rotation = java('net.minecraft.util.Rotation');
 
 /**
- * @param {ResourceLocation_} id
+ * @param {$ResourceLocation_} id
  * @param {string[][]} pattern note that there shall be one (and only one) `0`, marking the center of multiblock
- * @param {{[x in string]: Internal.Block}} keymaps
+ * @param {{[x in string]: $Block_}} keymaps
  */
 function PatchouliMultiblick(id, pattern, keymaps) {
     this.id = id;
@@ -30,7 +29,7 @@ PatchouliMultiblick.prototype = {
      * and the event will not be used
      *
      * note that `$PatchouliAPI.instance.showMultiblock(...)` does not need registering
-     * @param {Internal.StartupEventJS} event
+     * @param {$StartupEventJS_} event
      */
     register: function (event) {
         PatchouliAPI.instance.registerMultiblock(this.id, this.makePatchouliMultiblock());
@@ -63,13 +62,13 @@ if (DEBUG) {
             return;
         }
         if (event.hand == OFF_HAND) {
-            PatchouliAPI.instance.clearMultiblock();
+            PatchouliAPI.get().clearMultiblock();
             return;
         }
-        PatchouliAPI.instance.showMultiblock(
+        PatchouliAPI.get().showMultiblock(
             global.tMulti.makePatchouliMultiblock(),
             Text.of('sure'),
-            block.pos.up(),
+            block.pos.above(),
             Rotation.NONE
         );
     });
