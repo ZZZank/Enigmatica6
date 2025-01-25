@@ -360,7 +360,11 @@ onEvent('recipes', (event) => {
             inputs: [
                 'immersiveengineering:drill',
                 'immersiveengineering:drillhead_steel',
-                '10x immersiveengineering:biodiesel_bucket',
+                Item.of('pneumaticcraft:small_tank', {
+                    BlockEntityTag: {
+                        SavedTanks: { Tank: { Amount: 32000, FluidName: 'immersiveengineering:biodiesel' } }
+                    }
+                }).weakNBT().toJson(),
                 'immersiveengineering:toolupgrade_drill_waterproof',
                 'immersiveengineering:toolupgrade_drill_lube',
                 '3x immersiveengineering:toolupgrade_drill_damage',
@@ -391,31 +395,26 @@ onEvent('recipes', (event) => {
             ],
             pressure: 4.5,
             results: [
-                Item.of('resourcefulbees:bee_jar', { Entity: 'resourcefulbees:pcbee_bee' }).toResultJson()
+                Item.of('resourcefulbees:bee_jar', { Entity: 'resourcefulbees:pcbee_bee' })
             ],
             id: `${id_prefix}pcbee_jar`
         }
     ];
+
     recipes.forEach((recipe) => {
-        const ingredients = recipe.inputs.map((input) => {
-            if (typeof input != 'string') {
-                return input;
-            }
-            const parsed = toJsonWithCount(input);
-            parsed.type = 'pneumaticcraft:stacked_item';
-            return parsed;
-        });
         event
             .custom({
                 type: 'pneumaticcraft:pressure_chamber',
-                inputs: ingredients,
-                pressure: recipe.pressure,
-                results: recipe.results.map((str) => {
-                    if (typeof str != 'string') {
-                        return str;
+                inputs: recipe.inputs.map((input) => {
+                    if (typeof input != 'string') {
+                        return input;
                     }
-                    return Item.of(str).toResultJson();
-                })
+                    const parsed = toJsonWithCount(input);
+                    parsed.type = 'pneumaticcraft:stacked_item';
+                    return parsed;
+                }),
+                pressure: recipe.pressure,
+                results: recipe.results.map((str) => Item.of(str).toResultJson())
             })
             .id(recipe.id);
     });
