@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'powah:base/shaped/';
     const recipes = [];

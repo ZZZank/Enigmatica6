@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'architects_palette:base/shaped/';
     const recipes = [

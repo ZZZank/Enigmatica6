@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('entity_type.tags', (event) => {
     let entities = ['minecraft:blaze', 'thermal:blizz', 'thermal:blitz', 'thermal:basalz'];
     event.get('enigmatica:elementals').add(entities);

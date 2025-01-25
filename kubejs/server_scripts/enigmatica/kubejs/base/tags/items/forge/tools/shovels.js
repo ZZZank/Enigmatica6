@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     let items = ['immersiveengineering:shovel_steel', 'bloodmagic:soulshovel', 'atum:gebs_toil'];
     let exceptions = [

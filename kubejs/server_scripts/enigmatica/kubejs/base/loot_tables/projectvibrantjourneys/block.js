@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('block.loot_tables', (event) => {
     const loot_tables = [
         {

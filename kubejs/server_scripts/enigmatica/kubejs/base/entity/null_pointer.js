@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('entity.attack', (event) => {
     const { source, entity } = event;

@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     let items = [
         'immersiveengineering:armor_faraday_feet',

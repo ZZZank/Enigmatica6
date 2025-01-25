@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     //https://github.com/CompactMods/CompactCrafting/wiki/Recipe-Specification
 

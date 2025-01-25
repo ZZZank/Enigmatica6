@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('server.datapack.high_priority', function (event) {
     let tamingCriteria = {};
     tameableAnimals.forEach((entityType) => {

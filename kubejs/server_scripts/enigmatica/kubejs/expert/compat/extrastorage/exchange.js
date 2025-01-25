@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     if (global.isNormalMode || !Platform.isLoaded('extrastorage')) {
         return;

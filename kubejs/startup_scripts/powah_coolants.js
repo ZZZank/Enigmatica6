@@ -1,5 +1,5 @@
 // Listen to post-init event, after all mods have loaded
-'use strict';
+
 onEvent('postinit', (event) => {
     // Load PowahAPI
     let PowahAPI = java('owmii.powah.api.PowahAPI');

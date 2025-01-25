@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.add('forge:mushroom_caps', [
         'byg:shulkren_wart_block',

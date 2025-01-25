@@ -1,4 +1,4 @@
-'use strict';
+
 /**
  * @file Give items when player Shift+Right-click another player
  *

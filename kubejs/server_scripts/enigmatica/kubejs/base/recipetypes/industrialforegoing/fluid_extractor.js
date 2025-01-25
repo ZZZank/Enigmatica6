@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     treeRegistry.forEach((treeCategories) => {
         treeCategories.trees.forEach((tree) => {

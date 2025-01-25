@@ -1,4 +1,4 @@
-'use strict';
+
 
 function cuttingRecipe(ingredient, tool, result) {
     return {

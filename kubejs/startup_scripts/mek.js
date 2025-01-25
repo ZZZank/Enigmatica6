@@ -1,4 +1,4 @@
-'use strict';
+
 
 const $GasDeferredRegister = java('mekanism.common.registration.impl.GasDeferredRegister');
 const $SlurryDeferredRegister = java('mekanism.common.registration.impl.SlurryDeferredRegister');

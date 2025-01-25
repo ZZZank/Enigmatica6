@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.add('forge:seeds', [
         'immersiveengineering:seed',

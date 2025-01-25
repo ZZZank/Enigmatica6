@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('server.datapack.low_priority', (event) => {
     let data = [
         {

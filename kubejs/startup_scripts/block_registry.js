@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('block.registry', (event) => {
     /**
      * @type {{name:string, material:Internal.MaterialJS_, hardness:number, leaves?:boolean}[]}

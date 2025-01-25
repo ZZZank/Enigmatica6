@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     /**
      * @type {{tag:string,firstRemove?:any,thenAdd?:any}[]}

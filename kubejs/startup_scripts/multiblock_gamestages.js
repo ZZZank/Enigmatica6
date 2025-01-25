@@ -1,4 +1,4 @@
-'use strict';
+
 
 const ieMultiblockGameStage = {
     'immersivepetroleum:multiblocks/pumpjack': 'medium_machinery_schematics',

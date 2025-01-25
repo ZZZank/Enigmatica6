@@ -1,6 +1,12 @@
 // priority: 1000
-'use strict';
 
+
+/**
+ * @type {{
+ *  prefix: string,
+ *  block_place: any[]
+ * }}
+ */
 const restrictions = {
     prefix: 'gamestage.enigmatica.restrictions.'
 };

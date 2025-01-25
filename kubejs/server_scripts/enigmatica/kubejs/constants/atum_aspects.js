@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 const atum_aspects = [
     'nuit',

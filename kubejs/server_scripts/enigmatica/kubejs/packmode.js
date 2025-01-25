@@ -1,4 +1,4 @@
-'use strict';
+
 // priority: 1004
 
 /**

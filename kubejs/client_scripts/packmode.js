@@ -1,5 +1,5 @@
 // priority: 1004
-'use strict';
+
 
 // This duplicate packmode file is here to get the packmode
 // in the event that the client loads before the server

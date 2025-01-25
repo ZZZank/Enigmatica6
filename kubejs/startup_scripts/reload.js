@@ -1,4 +1,4 @@
-'use strict';
+
 
 global.onReload = () => {
     //reload powah configs

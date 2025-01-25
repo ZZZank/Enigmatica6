@@ -1,4 +1,4 @@
-'use strict';
+
 
 const {
     killing_entity_recipes,

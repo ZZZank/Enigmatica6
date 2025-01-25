@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 //Registry containing all crop-like growables.
 const cropRegistry = [

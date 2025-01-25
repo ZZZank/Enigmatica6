@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     colors.forEach((color) => {
         event.get('forge:candles').add('quark:' + color + '_candle');

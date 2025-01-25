@@ -1,5 +1,5 @@
 // priority: 999
-'use strict';
+
 // Priority must be less than that of constants.js as we're using the colors const
 
 // Items added here will get the 'valid_apiary' tag, and be usable as Apiary multiblock walls.

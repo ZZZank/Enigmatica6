@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('chest.loot_tables', (event) => {
     const pools = [
         {

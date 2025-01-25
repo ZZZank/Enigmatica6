@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('recipes', (event) => {
     /* Usage Documentation: https://github.com/TeamPneumatic/pnc-repressurized/wiki/Amadron-and-Datapacks#1152 */

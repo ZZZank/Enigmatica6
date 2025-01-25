@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     metals.forEach((metal) => {
         event.get(`enigmatica:mana_clusters`).add(`kubejs:suffused_${metal}`);

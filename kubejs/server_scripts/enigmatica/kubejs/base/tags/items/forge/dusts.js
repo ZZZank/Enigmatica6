@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event
         .get('forge:dusts')

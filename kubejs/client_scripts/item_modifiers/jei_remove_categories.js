@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('kube_jei.deny.categories', event => {
     event.deny(

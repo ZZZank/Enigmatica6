@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.add('tetra:forge_hammer_upgrades', [
         'tetra:combustion_chamber',

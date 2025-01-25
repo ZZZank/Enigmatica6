@@ -1,4 +1,4 @@
-'use strict';
+
 
 block_conversion: {
     const id_prefix = 'enlightened6:right_click_block/';

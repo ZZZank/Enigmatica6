@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('jei.subtypes', (event) => {
     /*

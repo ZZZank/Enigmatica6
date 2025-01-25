@@ -1,5 +1,5 @@
 // priority: 1001
-'use strict';
+
 const disabledItems = [
     'abnormals_delight:cherry_pantry',
     'abnormals_delight:cooked_duck_fillet',

@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 // used to generate stonecutting recipes
 const stonecuttables = [

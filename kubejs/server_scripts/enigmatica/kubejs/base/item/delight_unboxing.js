@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.right_click', (event) => {
     const { player, item } = event;
     if (event.hand != MAIN_HAND || player.fake || item.empty) {

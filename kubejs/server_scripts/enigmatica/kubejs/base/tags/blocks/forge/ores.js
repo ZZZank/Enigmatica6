@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('block.tags', (event) => {
     event.add('forge:ores', [
         'powah:uraninite_ore_poor',

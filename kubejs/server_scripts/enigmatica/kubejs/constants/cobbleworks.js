@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 // Items added here will get recipes for Pedestals & Cobblegen Randomizer cobblegens.
 const generatableCobblestone = [

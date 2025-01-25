@@ -1,4 +1,3 @@
-'use strict';
 
 restrictions.block_place = [
     /*

@@ -1,5 +1,5 @@
 // priority: 9
-'use strict';
+
 
 // TODO: the text on this one... isn't the best, so it'd be
 //  great if someone could help patch this up before release!

@@ -1,4 +1,4 @@
-'use strict';
+
 /// High Priority required or Apotheosis over-writes these.
 onEvent('server.datapack.high_priority', (event) => {
     const recipes = [

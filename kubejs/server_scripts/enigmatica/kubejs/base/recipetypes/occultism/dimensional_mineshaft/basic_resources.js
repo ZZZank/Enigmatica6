@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/occultism/miners/basic_resources/';
     const recipes = [

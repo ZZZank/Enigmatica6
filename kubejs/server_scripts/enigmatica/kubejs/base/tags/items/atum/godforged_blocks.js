@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     atum_aspects.forEach((atum_aspect) => {
         event.get(`atum:godforged_blocks`).add(`atum:${atum_aspect}_godforged_block`);

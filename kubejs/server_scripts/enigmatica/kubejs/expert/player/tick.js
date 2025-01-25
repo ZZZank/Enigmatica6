@@ -1,4 +1,4 @@
-'use strict';
+
 
 /*
 onEvent('player.tick', (event) => {

@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('player.inventory.changed', (event) => {
     const player = event.player;

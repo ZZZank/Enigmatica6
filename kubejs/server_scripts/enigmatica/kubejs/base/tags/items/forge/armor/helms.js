@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     let items = [
         'ars_nouveau:apprentice_hood',

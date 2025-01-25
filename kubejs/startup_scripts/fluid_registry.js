@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('fluid.registry', (event) => {
     /**
      * @param type Can be `thin`, `thick`, or `custom`

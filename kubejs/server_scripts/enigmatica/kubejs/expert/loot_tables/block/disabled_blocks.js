@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('block.loot_tables', (event) => {
     if (global.isNormalMode) {
         return;

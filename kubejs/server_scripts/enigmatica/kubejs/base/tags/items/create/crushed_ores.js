@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.get('create:crushed_ores/nickel').add('create:crushed_nickel_ore');
     event.get('create:crushed_ores/uranium').add('create:crushed_uranium_ore');

@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 // Used to populate the buildWoodVariants constant - Add variants here to enable compat with various cutting mechanics.
 // Be aware that you may need to specify exceptions in the loop below for this to work properly.

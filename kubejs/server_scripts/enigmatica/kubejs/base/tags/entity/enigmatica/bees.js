@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('entity_type.tags', (event) => {
     let entities = [];
     combVariants.forEach((type) => {

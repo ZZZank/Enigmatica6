@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('item.toss', (event) => {
     const player = event.player;

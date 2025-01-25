@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('block.tags', (event) => {
     event.add('forge:beehives/tier_0', tier0Hives);

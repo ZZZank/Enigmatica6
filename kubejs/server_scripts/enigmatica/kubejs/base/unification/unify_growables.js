@@ -1,5 +1,5 @@
 // priority: 900
-'use strict';
+
 
 onEvent('recipes', (event) => {
     soilRegistry.forEach((soil) => {

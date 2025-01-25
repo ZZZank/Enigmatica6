@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/thermal/tree_extractor_boost/';
 

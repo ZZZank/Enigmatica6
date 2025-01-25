@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     powahTiers.forEach(function (tier) {
         powahBlocks.forEach(function (block) {

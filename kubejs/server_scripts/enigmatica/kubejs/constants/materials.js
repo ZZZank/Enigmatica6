@@ -1,5 +1,5 @@
 // priority: 1010
-'use strict';
+
 
 // Used to determine which materials to unify
 const materialsToUnify = [

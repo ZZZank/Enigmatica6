@@ -1,4 +1,4 @@
-'use strict';
+
 
 //Tiers array
 const powahTiers = ['starter', 'basic', 'hardened', 'blazing', 'niotic', 'spirited', 'nitro'];

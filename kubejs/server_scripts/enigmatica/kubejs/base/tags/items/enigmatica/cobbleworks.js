@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.get('enigmatica:cobbleworks/stone').add(generatableStone);
     event.get('enigmatica:cobbleworks/cobblestone').add(generatableCobblestone);

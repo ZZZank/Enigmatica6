@@ -1,5 +1,5 @@
 // priority: 1001
-'use strict';
+
 // Registry of soils for use in botany pots
 const soilRegistry = [
     { block: 'minecraft:coarse_dirt', categories: ['dirt', 'coarse_dirt'], growthModifier: -0.65 },

@@ -1,4 +1,4 @@
-'use strict';
+
 
 const $VillagerEntity = java('net.minecraft.entity.merchant.villager.VillagerEntity');
 const $MerchantOffers = java('net.minecraft.item.MerchantOffers');

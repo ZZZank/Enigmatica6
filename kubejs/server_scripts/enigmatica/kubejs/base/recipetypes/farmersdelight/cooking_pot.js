@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/farmersdelight/cooking/';
     const recipes = [

@@ -1,5 +1,5 @@
 // priority: 9
-'use strict';
+
 
 onEvent('ponder.registry', (event) => {
     let itemsToPonder = generatableCobblestone;

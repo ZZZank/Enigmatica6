@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('worldgen.add', (event) => {
     event.addSpawn((spawn) => {
         spawn.category = 'creature';

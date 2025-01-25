@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 // all animals that can be tamed, used for the zoology challenge
 const tameableAnimals = [

@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/pneumaticcraft/pressure_chamber/';
     const recipes = [

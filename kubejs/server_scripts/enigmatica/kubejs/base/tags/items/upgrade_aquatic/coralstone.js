@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     let items = [/upgrade_aquatic:\w+_coralstone$/, 'upgrade_aquatic:coralstone'];
     event.get('upgrade_aquatic:coralstone').add(items);

@@ -1,4 +1,4 @@
-'use strict';
+
 {
     const rarityMap = {
         99: 'common', // 99 means 'c'

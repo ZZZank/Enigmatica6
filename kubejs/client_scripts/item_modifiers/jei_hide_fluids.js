@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('jei.hide.fluids', (event) => {
     /**
      * @type {Special.Fluid[]}

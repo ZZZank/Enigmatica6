@@ -1,4 +1,4 @@
-'use strict';
+
 
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:expert/masterful_machinery/enigmatic_tree_of_life/';

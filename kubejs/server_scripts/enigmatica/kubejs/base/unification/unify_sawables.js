@@ -1,5 +1,5 @@
 // priority: 900
-'use strict';
+
 
 onEvent('recipes', (event) => {
     buildWoodVariants.forEach((variant) => {

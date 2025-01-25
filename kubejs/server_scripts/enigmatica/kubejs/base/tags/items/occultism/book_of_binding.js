@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.get('occultism:book_of_binding_bound').add([/book_of_binding_bound/]);
 

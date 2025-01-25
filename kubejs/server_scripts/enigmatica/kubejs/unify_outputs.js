@@ -1,5 +1,5 @@
 // priority: 900
-'use strict';
+
 /*
     This scripts unifies the output of recipes.
 

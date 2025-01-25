@@ -1,5 +1,5 @@
 // priority: 1000
-'use strict';
+
 
 const fires = [
     'minecraft:fire', //

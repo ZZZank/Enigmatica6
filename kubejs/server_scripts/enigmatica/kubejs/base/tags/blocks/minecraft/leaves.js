@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('block.tags', (event) => {
     event.add('minecraft:leaves/coniferous', [
         'byg:brown_zelkova_leaves',

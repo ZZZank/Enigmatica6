@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     quark_crystal_colors.forEach((color) => {
         event.get('quark:crystal_clusters').add(`quark:${color}_crystal_cluster`);

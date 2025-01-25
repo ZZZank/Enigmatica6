@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     return;
     const id_prefix = 'enigmatica:normal/masterful_machinery/shaped';

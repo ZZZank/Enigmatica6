@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     atum_aspects.forEach((atum_aspect) => {
         event.get('atum:artifacts').add(`/atum:${atum_aspect}.*_/`);

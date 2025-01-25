@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('item.tags', (event) => {
     event.add('forge:raw_fishes/cod', ['aquaculture:atlantic_cod']);
     event.add('forge:raw_fishes/salmon', ['aquaculture:pink_salmon']);

@@ -1,4 +1,4 @@
-'use strict';
+
 onEvent('recipes', (event) => {
     const customRemovals = [
         { type: 'create:cutting', input: '#minecraft:logs' },
