@@ -1,3 +1,4 @@
+// priority: 1000
 
 /**
  * @type {{
@@ -6,7 +7,7 @@
  *  holding:$ItemStackJS_
  * }[]}
  */
-const blockConvDummyRecipes = [
+global.blockConvDummyRecipes = [
     {
         target: 'minecraft:crafting_table',
         holding: Item.of('tetra:modular_double', {

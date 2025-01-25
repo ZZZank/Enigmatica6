@@ -1,13 +1,7 @@
 // priority: 1000
 
-const blockConvID = new ResourceLocation('enlightened6', 'block_conversion');
-
-const AIR_RL = new ResourceLocation('minecraft:air');
-
-const {
-    blockConvCompiledRecipes,
-    blockConvRawRecipes
-} = (() => {
+{
+    const ID = new ResourceLocation('enlightened6', 'block_conversion');
     /**
      * @type {{
      *  target:Special.Block,
@@ -124,8 +118,8 @@ const {
             additional: additional
         })
     })
-    return {
-        blockConvRawRecipes: raw,
-        blockConvCompiledRecipes: compiled
-    }
-})()
+
+    global['blockConvID'] = ID
+    global['blockConvCompiled'] = compiled
+    global['blockConvRecipes'] = raw
+}
