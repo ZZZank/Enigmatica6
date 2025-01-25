@@ -16,11 +16,8 @@ const {
     const recipes = [
         {
             target: [
-                Item.of('ars_nouveau:glyph_filter_monster', {
-                    display: {
-                        Lore: ['[{ "text": "Any monsters with no more than 20 healths(10 hearts)" }]']
-                    }
-                })
+                Item.of('ars_nouveau:glyph_filter_monster')
+                    .withName("Any monsters with no more than 20 healths(10 hearts)")
             ],
             weapon: Item.of('minecraft:trident', {
                 nullptrType: 1,
