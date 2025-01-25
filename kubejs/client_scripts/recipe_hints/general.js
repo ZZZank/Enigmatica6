@@ -64,8 +64,7 @@ onEvent("kube_jei.register_recipes", event => {
         }
     ];
 
-    
-    const astralsorcery_mineralis = () => {
+    {
         let weightSum = 0;
         const perk_stone_enrichment_ore = [
             'forge:ores/aluminum;1200',
@@ -96,23 +95,26 @@ onEvent("kube_jei.register_recipes", event => {
             .map((entry) => {
                 const [tag, weightStr] = entry.split(';', 2);
                 const weight = parseInt(weightStr);
-                const item = getPreferredItemInTag(Ingredient.of('#' + tag));
                 weightSum += weight;
-                return { item: item, weight: weight };
+                return {
+                    item: getPreferredItemInTag(Ingredient.of('#' + tag)),
+                    weight: weight
+                };
             })
-            .map((entry) => entry.item.chance(entry.weight / weightSum));
+            .sort((a, b) => a.weight - b.weight)
+            .map((entry) => withChanceInName(entry.item, entry.weight / weightSum));
 
-        return toPagedArray(perk_stone_enrichment_ore, 20).forEach((page, i) => {
-            recipes.push({
+        recipes.push(
+            {
                 inItems: [
                     Item.of('astralsorcery:attuned_rock_crystal', {
                         astralsorcery: { constellationName: 'astralsorcery:mineralis' }
                     })
                 ],
                 catalyst: 'astralsorcery:ritual_pedestal',
-                outItems: page
-            });
-        });
+                outItems: spreadArraySizeEnsured(perk_stone_enrichment_ore, 6, Item.getEmpty())
+            }
+        )
     }
 
     const builder = event.custom(ID)
@@ -127,6 +129,7 @@ onEvent("kube_jei.register_categories", event => {
     const ID = new ResourceLocation("enlightened", "recipe_hint")
 
     event.custom(ID)
+        .setTitle('Recipe Hints')
         .setIcon(drawables.ingredientItem("minecraft:item_frame"))
         .setBackground(drawables.blank(SIZE * 8, SIZE * 3))
         .setFillIngredientsHandler((recipes, ingredients) => {

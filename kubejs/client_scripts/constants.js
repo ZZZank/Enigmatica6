@@ -1,6 +1,35 @@
 // priority: 1000
 'use strict';
 
+// priority of which mod output should come from, if applicable
+const modPriorities = [
+    'emendatusenigmatica',
+    'minecraft',
+    'immersiveengineering',
+    'thermal',
+    'mekanism',
+    'kubejs',
+    'pneumaticcraft',
+    'create',
+    'occultism',
+    'industrialforegoing',
+    'botania',
+    'quark',
+    'pedestals',
+    'appliedenergistics2',
+    'mapperbase',
+    'bloodmagic',
+    'morevanillalib',
+    'titanium',
+    'mythicbotany',
+    'undergarden',
+    'byg',
+    'atum',
+    'betterendforge',
+    'miniutilities',
+    'chipped',
+    'tconstruct'
+];
 const refinedStorageItems = [
     'grid',
     'crafting_grid',
