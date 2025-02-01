@@ -3,16 +3,18 @@ onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/astralsorcery/block_transmutation/';
 
     /**
-     * @type {{input: SelfOrArray<{block:string, display?:{}}>,
-     * output: {block:string, properties?:{}}, starlight:number, display?:{},
-     * constellation?:string, id:string}[]}
+     * @type {{
+     *  input: {}[],
+     *  output: {block:string, properties?:{}},
+     *  starlight:number,
+     *  display?:{},
+     *  constellation?:string,
+     *  id:string
+     * }[]}
      */
     const recipes = [
         {
-            input: getItemsInTag(Ingredient.of('#forge:ores/diamond')).map((stack) => {
-                return { block: stack.id };
-            }),
-            display: { item: 'emendatusenigmatica:diamond_chunk' },
+            input: [{ tag: 'forge:ores/diamond' }],
             output: { block: 'emendatusenigmatica:emerald_ore' },
             starlight: 1000,
             id: 'astralsorcery:block_transmutation/diamond_emerald'
@@ -49,6 +51,7 @@ onEvent('recipes', (event) => {
     recipes.forEach((recipe) => {
         // @ts-ignore
         recipe.type = 'astralsorcery:block_transmutation';
+        // @ts-ignore
         event.custom(recipe).id(recipe.id);
     });
 });
