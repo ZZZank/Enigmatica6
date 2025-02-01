@@ -122,7 +122,7 @@ const entryIsBlacklisted = (material, type) => {
  * get the most prefered item in a tag based on priorities from variable `modPriorities`
  * @see modPriorities
  * @param {$IngredientJS_} tag
- * @returns {$ItemStackJS_}
+ * @returns {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS}
  */
 const getPreferredItemInTag = (tag) => {
     const items = getItemsInTag(tag);
@@ -164,7 +164,7 @@ function toPagedArray(arr, pageSize) {
 
 /**
  * @param {$IngredientJS_} tag
- * @return {$ItemStackJS_[]}
+ * @return {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS[]}
  */
 const getItemsInTag = (tag) => {
     return Ingredient.of(tag).getStacks().toArray();

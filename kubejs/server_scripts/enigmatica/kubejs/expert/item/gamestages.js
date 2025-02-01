@@ -14,6 +14,7 @@
         if (global.isNormalMode) {
             return;
         }
+
         const player = event.player;
         if (!player || !player.player || player.fake || player.mainHandItem.empty) {
             return;
