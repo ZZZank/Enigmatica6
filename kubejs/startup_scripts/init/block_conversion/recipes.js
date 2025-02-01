@@ -121,5 +121,11 @@
 
     global['blockConvID'] = ID
     global['blockConvCompiled'] = compiled
-    global['blockConvRecipes'] = raw
+    global['blockConvRecipes'] = raw.map(recipe => ({
+        target: Ingredient.of(recipe.target),
+        output: Ingredient.of(recipe.output),
+        holding: Ingredient.of(recipe.holding),
+        id: recipe.id,
+        additional: recipe.additional
+    }))
 }

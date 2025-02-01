@@ -53,3 +53,8 @@ global.blockConvDummyRecipes = [
         output: Item.of('minecraft:ghast_tear').chance(1 / 8)
     }
 ]
+    .map(r => ({
+        target: Ingredient.of(r.target),
+        holding: Ingredient.of(r.holding),
+        output: Ingredient.of(r.output),
+    }))
