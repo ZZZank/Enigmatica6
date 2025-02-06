@@ -7,7 +7,7 @@ onEvent('recipes', (event) => {
     //Disable an item completely.
     itemsToRemoveAE.forEach((entry) => {
         event.remove({ output: entry });
-        event.remove({ input: entry });
+        event.remove({ input: entry, id: '/appliedenergistics2/' });
     });
 
     //Remove a recipe by id
