@@ -1,4 +1,9 @@
 {
   "Canonicalize Quads": false,
-  "Cache Shader Uniforms": true
+  "Cache Shader Uniforms": true,
+  "Tiered Compound Tag Internal": true,
+  "Compound Tag Internal Reconstruct Threshold": 5,
+  "Cache Number Tag": true,
+  "Number Tag Cache starts at (inclusive)": -4096,
+  "Number Tag Cache ends at (exclusive)": 4096
 }
