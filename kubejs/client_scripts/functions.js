@@ -14,6 +14,11 @@ const titleCase = (str) => {
         .join(' ');
 };
 
+/**
+ * @template T
+ * @param {$Collection_<T>} entries
+ * @returns {T}
+ */
 function randomOf(entries) {
     return Utils.randomOf(Utils.getRandom(), entries);
 }
@@ -21,7 +26,6 @@ function randomOf(entries) {
 /**
  * @param {$ItemStackJS_} item
  * @param {string?} color
- * @returns {string}
  */
 const rawItemStr = (item, color) => {
     item = Item.of(item)
@@ -55,7 +59,7 @@ const rawItemStr = (item, color) => {
 
 /**
  * run `tellraw` command on a player
- * @param {import("packages/dev/latvian/kubejs/player/$PlayerJS").$PlayerJS<any>} player The target of tellraw command
+ * @param {Internal.PlayerJS<any>} player The target of tellraw command
  * @param {string} str The content of tellraw command
  */
 const tellraw = (player, str) => {
@@ -66,7 +70,6 @@ const tellraw = (player, str) => {
  * get the most prefered item in a tag based on priorities from variable `modPriorities`
  * @see modPriorities
  * @param {$IngredientJS_} tag
- * @returns {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS}
  */
 const getPreferredItemInTag = (tag) => {
     const items = getItemsInTag(tag);
@@ -78,12 +81,15 @@ const getPreferredItemInTag = (tag) => {
     return maxOf(items, (a, b) => -compareIndices(a.mod, b.mod, tag));
 };
 
+/**
+ * @template T
+ * @param {T[]} list 
+ * @param {((a: T, b: T) => number)} comparator 
+ * @returns {T}
+ */
 function maxOf(list, comparator) {
     if (list.length == 0) {
         return null;
-    }
-    if (!comparator) {
-        comparator = (a, b) => a - b;
     }
     let targetIndex = 0;
     for (let i = 1; i < list.length; i++) {
@@ -96,7 +102,7 @@ function maxOf(list, comparator) {
 
 /**
  * @param {$IngredientJS_} tag
- * @return {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS[]}
+ * @return {Internal.ItemStackJS[]}
  */
 function getItemsInTag(tag) {
     return Ingredient.of(tag).getStacks().toArray();
@@ -124,7 +130,7 @@ const compareIndices = (a, b, tag) => {
 /**
  *
  * @param {$IngredientJS_} item
- * @param {import("packages/dev/latvian/kubejs/player/$PlayerJS").$PlayerJS<any>} player
+ * @param {Internal.PlayerJS<any>} player
  * @returns {boolean}
  */
 const playerHas = (item, player) => {

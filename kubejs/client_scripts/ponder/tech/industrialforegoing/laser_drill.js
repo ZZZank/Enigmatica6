@@ -5,14 +5,14 @@
 //  great if someone could help patch this up before release!
 
 onEvent('ponder.registry', (event) => {
-    let badOres = Ingredient.of([
+    const badOres = [
         'emendatusenigmatica:iron_ore',
         'emendatusenigmatica:coal_ore',
         'emendatusenigmatica:apatite_ore',
         'emendatusenigmatica:tin_ore',
         'emendatusenigmatica:copper_ore',
         'emendatusenigmatica:cinnabar_ore'
-    ]);
+    ];
 
     event
         .create('enigmatica:laser_drill', [
@@ -292,11 +292,10 @@ onEvent('ponder.registry', (event) => {
                         new PonderInput([3.5, 4, 3.5], PonderPointing.DOWN)
                             .showing(PonderIcons.I_CONFIRM)
                             .withItem(
-                                randomOf(
-                                    Ingredient.of([
+                                randomOf([
                                         'emendatusenigmatica:uranium_ore',
                                         'emendatusenigmatica:emerald_ore'
-                                    ])
+                                    ]
                                 )
                             ),
                         120
@@ -424,7 +423,7 @@ onEvent('ponder.registry', (event) => {
 
                 scene.idle(30);
 
-                let tank1 = util.grid().at(3, 4, 3);
+                const tank1 = util.grid().at(3, 4, 3);
                 scene
                     .world()
                     .setBlock(
@@ -633,7 +632,7 @@ onEvent('ponder.registry', (event) => {
                 scene.idle(60);
 
                 let soulsand = util.getDefaultState('minecraft:soul_sand');
-                let skull = Block.id('minecraft:wither_skeleton_skull').with('rotation', 0).blockState;
+                let skull = Block.id('minecraft:wither_skeleton_skull').with('rotation', '0').blockState;
 
                 scene.world().setBlock([3, 2, 3], soulsand, false);
                 scene.idle(10);
