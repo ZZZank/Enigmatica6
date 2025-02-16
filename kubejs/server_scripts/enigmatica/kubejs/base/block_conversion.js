@@ -16,7 +16,7 @@ block_conversion: {
         }
 
         const target = event.block;
-        const recipes = global.blockConvCompiled[target.id]
+        const recipes = blockConvCompiled[target.id]
         if (!recipes) {
             return
         }
@@ -53,7 +53,7 @@ block_conversion: {
     onEvent('recipes', event => {
         const { deploying } = event.recipes.create
 
-        global['blockConvRecipes'].forEach(recipe => {
+        blockConvRecipes.forEach(recipe => {
             deploying(recipe.output, [recipe.target, recipe.holding]).id(id_prefix + recipe.id + '/deploy');
         })
     })

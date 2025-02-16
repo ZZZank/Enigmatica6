@@ -1,11 +1,12 @@
 // priority: 1000
 
 /**
- * @type {{
- *  target:Special.Block,
- *  output:$ItemStackJS_,
- *  holding:$ItemStackJS_
- * }[]}
+ * @typedef {{
+ *  target: Special.Block;
+ *  output: $ItemStackJS_;
+ *  holding: $ItemStackJS_;
+ * }} blockConvDummyRecipe
+ * @type {blockConvDummyRecipe[]}
  */
 const blockConvDummyRecipes = [
     {

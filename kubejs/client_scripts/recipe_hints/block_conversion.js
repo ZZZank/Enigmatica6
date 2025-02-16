@@ -2,11 +2,14 @@
 onEvent('kube_jei.register_categories', event => {
     const { drawables, helpers, jeiHelpers, mc, renderHelper } = event
     const arrow = drawables.arrow()
-    event.custom(global['blockConvID'])
+    event.custom(blockConvID)
         .setTitle(Text.of('Block Conversion'))
         .setIcon(drawables.ingredient(Item.of("create:brass_hand")))
         .setBackground(drawables.blank(20 * 4, 18))
         .fillIngredients((recipe, ingredients) => {
+            /**
+             * @type {blockConvDummyRecipe}
+             */
             const { holding, target, output } = recipe.data
 
             ingredients.setItemInputs(holding, target)
@@ -30,8 +33,8 @@ onEvent('kube_jei.register_categories', event => {
 })
 
 onEvent('kube_jei.register_recipes', event => {
-    const builder = event.custom(global['blockConvID'])
+    const builder = event.custom(blockConvID)
 
-    global.blockConvRecipes.forEach(recipe => builder.add(recipe))
-    global.blockConvDummyRecipes.forEach(recipe => builder.add(recipe))
+    blockConvRecipes.forEach(recipe => builder.add(recipe))
+    blockConvDummyRecipes.forEach(recipe => builder.add(recipe))
 })
