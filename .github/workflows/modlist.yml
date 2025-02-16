@@ -1,7 +1,6 @@
 name: Update Modlist
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - 'enlightened_develop'
@@ -10,23 +9,25 @@ on:
       - MODLIST.md
       - minecraftinstance.json
       - automation/settings.ps1
+      - automation/modpack-uploader.ps1
       - .github/workflows/modlist.yml
-      - automation/node/modlist-generate.js
 
 jobs:
   job:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-      - run: npm install
-        working-directory: automation/node
-
-      - run: node automation/node/modlist-generate.js
+      - run: ls
+      - run: tree
+      - run: pwsh automation/modpack-uploader.ps1 -mode modlist
 
       - name: Run git commit
         run: |

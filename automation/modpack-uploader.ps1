@@ -1,5 +1,7 @@
 param(
     [Parameter(Position = 0)]
+    [string]$mode = "default",
+    [Parameter(Position = 1)]
     [switch]$uploadExpertMode
 )
 
@@ -11,29 +13,33 @@ $overridesFolder = "overrides"
 $secretsFile = "secrets.ps1"
 
 function ValidateSecretsFile {
-    if (!(Test-Path "$PSScriptRoot\$secretsFile")) {
+    if (!(Test-Path "$PSScriptRoot/$secretsFile")) {
         Write-Host "You need a valid CurseForge API Token in a $secretsFile file" -ForegroundColor Red
         Write-Host "Creating $secretsFile" -ForegroundColor Cyan
         New-Item -Path $PSScriptRoot -ItemType File -Name $secretsFile -Value "# To generate an API token go to: https://authors.curseforge.com/account/api-tokens `n $CURSEFORGE_TOKEN = `"your-curseforge-token-here`""
     }
 }
 
-. "$PSScriptRoot\settings.ps1"
-. "$PSScriptRoot\$secretsFile"
-
 function Switch-DefaultModeTo {
     param(
         [Parameter(Position = 0)]
         [string]$mode
     )
-    $defaultModeFilePath = "config/configswapper.json"
 
-    # Force the mode.json to be in expert mode for publishing
+    $defaultModeFilePath = "$INSTANCE_ROOT/config/configswapper.json"
+
+    # # Force the mode.json to be in the mode we're publishing
     $defaultModeJson = Get-Content -Raw -Path $defaultModeFilePath | ConvertFrom-Json
     if ($defaultModeJson.defaultmode -ne $mode) {
         $defaultModeJson.defaultmode = $mode
         $defaultModeJson | ConvertTo-Json | Set-Content $defaultModeFilePath
     }
+
+    # Copy over Emendatus Enigmatica files to ensure they're present on first launch
+    $configswapperEmendatusEnigmaticaFolder = "$INSTANCE_ROOT/config/configswapper/$mode/config/emendatusenigmatica"
+    $emendatusEnigmaticaConfigFolder = "$INSTANCE_ROOT/config"
+
+    Copy-Item -Path $configswapperEmendatusEnigmaticaFolder -Destination $emendatusEnigmaticaConfigFolder -Force -Recurse
 }
 
 function Get-GitHubRelease {
@@ -71,7 +77,7 @@ function Test-ForDependencies {
         throw "7zip not command available. Please follow the instructions above." 
     }
 
-    $isCurlAvailable = Get-Command curl.exe
+    $isCurlAvailable = Get-Command $curl
     if (-not $isCurlAvailable) {
         Clear-Host
         Write-Host 
@@ -82,8 +88,29 @@ function Test-ForDependencies {
         Write-Host 
         Write-Host "When you're done, rerun this script.`n"
 
-        throw "curl.exe command not available. Please follow the instructions above." 
+        throw "curl not available. Please follow the instructions above." 
     }
+}
+
+function Update-BetterCompatibilityCheckerVersion {
+    param(
+        [Parameter(Position = 0)]
+        [string]$mode
+    )
+
+    $configPath = "$INSTANCE_ROOT/config/bcc-common.toml"
+
+    $modpackName = "Enigmatica 9"
+    if ($mode -eq "expert") {
+        $modpackName = "Enigmatica 9 Expert"
+    }
+
+    # Replace anything that matches semver of the type 1.0.0 with $MODPACK_VERSION
+    $contents = [System.IO.File]::ReadAllText($configPath) -replace "\d+\.\d+\.\d+", $MODPACK_VERSION
+    $contents = $contents -replace "modpackName.*", "modpackName = `"$modpackName`""
+    $contents = $contents -replace "modpackProjectID.*", "modpackProjectID = $CURSEFORGE_PROJECT_ID"
+
+    [System.IO.File]::WriteAllText($configPath, $contents)
 }
 
 function New-ClientFiles {
@@ -118,7 +145,8 @@ function New-ClientFiles {
         Remove-BlacklistedFiles
 
         # Zipping up the newly created overrides folder and $manifest
-        7z a $clientZip ($overridesFolder, $manifest) -r -sdel
+        7z a $clientZip $manifest -sdel
+        7z a $clientZip $overridesFolder -r -sdel
 
         Remove-Item $manifest -Force -Recurse -ErrorAction SilentlyContinue
         Write-Host "Client files $clientZip created!" -ForegroundColor Green
@@ -143,11 +171,20 @@ function New-ManifestJson {
             }) > $null
     }
 
+    $modloaderId = $minecraftInstanceJson.baseModLoader.name
+
+    if ($MODLOADER -eq "fabric") {
+        # Example output: "fabric-0.13.3-1.18.1"
+        $splitModloaderId = $modloaderId -split "-"
+        # Only keep "fabric-0.13.3"
+        $modloaderId = $splitModloaderId[0] + "-" + $splitModloaderId[1]
+    }
+
     $jsonOutput = @{
         minecraft       = @{
             version    = $minecraftInstanceJson.baseModLoader.minecraftVersion
             modLoaders = @(@{
-                    id      = $minecraftInstanceJson.baseModLoader.name
+                    id      = $modloaderId
                     primary = $true
                 })
         }
@@ -221,6 +258,8 @@ function Push-ClientFiles {
             Remove-BlacklistedFiles
         }
 
+        # This ugly json seems to be a necessity, 
+        # I have yet to get @{} and ConvertTo-Json to work with the CurseForge Upload API
         $CLIENT_METADATA = 
         "{
             changelog: `'$CLIENT_CHANGELOG`',
@@ -239,7 +278,7 @@ function Push-ClientFiles {
         Write-Host "Uploading client files to https://minecraft.curseforge.com/api/projects/$CURSEFORGE_PROJECT_ID/upload-file" -ForegroundColor Green
         Write-Host
 
-        $response = curl.exe `
+        $response = & $curl `
             --url "https://minecraft.curseforge.com/api/projects/$CURSEFORGE_PROJECT_ID/upload-file" `
             --user "$CURSEFORGE_USER`:$CURSEFORGE_TOKEN" `
             -H "Accept: application/json" `
@@ -260,7 +299,9 @@ function Push-ClientFiles {
         Write-Host "Return Id: $clientFileReturnId" -ForegroundColor Cyan
         Write-Host
 
-        Update-FileLinkInServerFiles -ClientFileReturnId $clientFileReturnId
+        if ($ENABLE_SERVERSTARTER_MODULE) {
+            Update-FileLinkInServerFiles -ClientFileReturnId $clientFileReturnId
+        }
     }
 }
 
@@ -274,7 +315,9 @@ function Update-FileLinkInServerFiles {
         $idPart1 = Remove-LeadingZero -text $idPart1
         $idPart2 = $clientFileIdString.Substring(4, $clientFileIdString.length - 4)
         $idPart2 = Remove-LeadingZero -text $idPart2
-        $curseForgeCdnUrl = "https://media.forgecdn.net/files/$idPart1/$idPart2/$CLIENT_ZIP_NAME.zip"
+        # CurseForge replaces whitespace in filenames with + in their CDN urls
+        $sanitizedClientZipName = $CLIENT_ZIP_NAME.Replace(" ", "+")
+        $curseForgeCdnUrl = "https://media.forgecdn.net/files/$idPart1/$idPart2/$sanitizedClientZipName.zip"        
         $content = (Get-Content -Path $SERVER_SETUP_CONFIG_PATH) -replace "https://media.forgecdn.net/files/\d+/\d+/.*.zip", $curseForgeCdnUrl 
         [System.IO.File]::WriteAllLines(($SERVER_SETUP_CONFIG_PATH | Resolve-Path), $content)
 
@@ -294,13 +337,8 @@ function New-ServerFiles {
         Write-Host 
         Write-Host "Creating server files..." -ForegroundColor Cyan
         Write-Host 
-        if ($uploadExpertMode) {
-            Copy-Item -Path "$CLIENT_ZIP_NAME.zip" -Destination "server_files_expert\mainpack.zip" -ErrorAction SilentlyContinue
-        } else {
-            Copy-Item -Path "$CLIENT_ZIP_NAME.zip" -Destination "server_files\mainpack.zip" -ErrorAction SilentlyContinue
-        }
-        7z a -tzip $serverZip "$SERVER_FILES_FOLDER\*"
-        Move-Item -Path "automation\$serverZip" -Destination $serverZip -ErrorAction SilentlyContinue
+        7z a -tzip $serverZip "$SERVER_FILES_FOLDER/*"
+        Move-Item -Path "automation/$serverZip" -Destination $serverZip -ErrorAction SilentlyContinue
         Write-Host "Server files created!" -ForegroundColor Green
 
         if ($ENABLE_MODPACK_UPLOADER_MODULE) {
@@ -329,7 +367,7 @@ function Push-ServerFiles {
         Write-Host "Uploading server files..." -ForegroundColor Cyan
         Write-Host 
 
-        $serverFileResponse = curl.exe `
+        $serverFileResponse = & $curl `
             --url "https://minecraft.curseforge.com/api/projects/$CURSEFORGE_PROJECT_ID/upload-file" `
             --user "$CURSEFORGE_USER`:$CURSEFORGE_TOKEN" `
             -H "Accept: application/json" `
@@ -398,41 +436,68 @@ function Remove-LeadingZero {
     return [int]$text
 }
 
+# Script execution starts here
+. "$PSScriptRoot/settings.ps1"
+. "$PSScriptRoot/$secretsFile"
+
 $startLocation = Get-Location
 Set-Location $INSTANCE_ROOT
 
+if ($null -eq $IsWindows -or $IsWindows) {
+    # The script is running on Windows, use curl.exe
+    $curl = "curl.exe"
+}
+else {
+    $curl = "curl"
+}
+
 Test-ForDependencies
-ValidateSecretsFile
 
-if ($uploadExpertMode) {
-    $CURSEFORGE_PROJECT_ID = 889901
-    $SERVER_FILES_FOLDER = "$INSTANCE_ROOT/server_files_expert"
-    $SERVER_SETUP_CONFIG_PATH = "$SERVER_FILES_FOLDER/server-setup-config.yaml"
-    $MODPACK_NAME = "enlightened-6-expert"
-    $CLIENT_NAME = "Enlightened6Expert"
-    $CLIENT_ZIP_NAME = "$CLIENT_NAME-$MODPACK_VERSION"
-    $SERVER_ZIP_NAME = "$CLIENT_NAME`Server-$MODPACK_VERSION"
-    $LAST_MODPACK_ZIP_NAME = "$CLIENT_NAME-$LAST_MODPACK_VERSION"
-    $CLIENT_FILE_DISPLAY_NAME = "Enlightened 6 Expert $MODPACK_VERSION"
-    $SERVER_FILE_DISPLAY_NAME = "Enlightened 6 Expert Server $MODPACK_VERSION"
+switch ($mode) {
+    "default" {
+        . "$PSScriptRoot/$secretsFile"
+        ValidateSecretsFile
 
-    Switch-DefaultModeTo -mode "expert"
-} else {
-    Switch-DefaultModeTo -mode "normal"
+        if ($uploadExpertMode) {
+            $CURSEFORGE_PROJECT_ID = 882461
+            $SERVER_FILES_FOLDER = "$INSTANCE_ROOT/server_files_expert"
+            $SERVER_SETUP_CONFIG_PATH = "$SERVER_FILES_FOLDER/server-setup-config.yaml"
+            $MODPACK_NAME = "Enigmatica9Expert"
+            $CLIENT_NAME = "Enigmatica9Expert"
+            $CLIENT_ZIP_NAME = "$CLIENT_NAME-$MODPACK_VERSION"
+            $SERVER_ZIP_NAME = "$CLIENT_NAME`Server-$MODPACK_VERSION"
+            $LAST_MODPACK_ZIP_NAME = "$CLIENT_NAME-$LAST_MODPACK_VERSION"
+            $CLIENT_FILE_DISPLAY_NAME = "Enigmatica 9 Expert $MODPACK_VERSION"
+            $SERVER_FILE_DISPLAY_NAME = "Enigmatica 9 Expert Server $MODPACK_VERSION"
+
+            Switch-DefaultModeTo -mode "expert"
+            Update-BetterCompatibilityCheckerVersion -mode "expert"
+        }
+        else {
+            Switch-DefaultModeTo -mode "normal"
+            Update-BetterCompatibilityCheckerVersion -mode "normal"
+        }
+
+        New-ClientFiles
+        Push-ClientFiles
+        if ($ENABLE_SERVER_FILE_MODULE -and -not $ENABLE_MODPACK_UPLOADER_MODULE) {
+            New-ServerFiles
+        }
+        if (!$uploadExpertMode) {
+            New-GitHubRelease
+            New-Changelog
+            Update-Modlist
+        }
+
+        Write-Host "Modpack Upload Complete!" -ForegroundColor Green
+        Set-Location $startLocation
+
+        pause
+        break
+    }    
+    "modlist" {
+        New-ClientFiles
+        Update-Modlist
+        break
+    }
 }
-
-New-ClientFiles
-Push-ClientFiles
-if ($ENABLE_SERVER_FILE_MODULE -and -not $ENABLE_MODPACK_UPLOADER_MODULE) {
-    New-ServerFiles
-}
-if (!$uploadExpertMode) {
-    New-GitHubRelease
-    New-Changelog
-    Update-Modlist
-}
-
-Write-Host "Modpack Upload Complete!" -ForegroundColor Green
-Set-Location $startLocation
-
-pause
