@@ -186,11 +186,14 @@ onEvent('recipes', (event) => {
     ];
 
     recipes.forEach((recipe) => {
+        // @ts-ignore
         recipe.inputs = recipe.inputs.map((val) => toMMJson(val));
+        // @ts-ignore
         recipe.outputs = recipe.outputs.map((val) => toMMJson(val));
         recipe.type = 'masterfulmachinery:machine_process';
         recipe.structureId = 'auto_iridescent_altar_structure';
         recipe.controllerId = 'auto_iridescent_altar';
+        // @ts-ignore
         event.custom(recipe).id(recipe.id);
     });
 });
