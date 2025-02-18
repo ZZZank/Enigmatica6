@@ -239,6 +239,10 @@ config/sidebar_buttons.json
 server_files/mainpack.zip
 server_files_expert/mainpack.zip
 
-.probe
+.probe/*
+!.probe/probe-settings.json
+
 kubejs/config/web_server.json
+
 config/spark/activity.json
+config/spark/*.sparkprofile

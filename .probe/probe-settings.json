@@ -1,0 +1,125 @@
+{
+  "configVersion": {
+    "$default": 3,
+    "$value": 3,
+    "$comment": [
+      "welcome to ProbeJS Legacy config file",
+      "remember to use '/probejs refresh_config' to refresh your config after changing config values",
+      "sub-entry and keys: comments->'$comment', current values->'$value', default values->'$default'",
+      "",
+      "comments and default values are provided, but not modifiable, changes to them will not be kept",
+      "for changing certain config value, change sub-entry whose key is '$value'"
+    ]
+  },
+  "enabled": {
+    "$default": true,
+    "$value": true,
+    "$comment": [
+      "enable or disable ProbeJS Legacy",
+      "note that `require()` function in script are always available"
+    ]
+  },
+  "interactive": {
+    "$default": false,
+    "$value": false,
+    "$comment": [
+      "use with ProbeJS VSCode Extension.",
+      "Disabled due to many breaking changes from KubeJS/ProbeJS from higher version"
+    ]
+  },
+  "interactivePort": {
+    "$default": 7796,
+    "$value": 7796,
+    "$comment": [
+      "use with ProbeJS VSCode Extension.",
+      "Disabled due to many breaking changes from KubeJS/ProbeJS from higher version"
+    ]
+  },
+  "modHash": {
+    "$default": -1,
+    "$value": -3584402224989862203,
+    "$comment": "internal config, used for tracking mod update and modlist change"
+  },
+  "registryHash": {
+    "$default": -1,
+    "$value": 4268276445627905243,
+    "$comment": "internal config, used for tracking registry change"
+  },
+  "isolatedScopes": {
+    "$default": false,
+    "$value": false,
+    "$comment": [
+      "isolate scripts from different script file with certain exposure,",
+      "used for making scripts actual running situation more in line with your coding"
+    ]
+  },
+  "complete": {
+    "$default": true,
+    "$value": false,
+    "$comment": [
+      "attach all registry names of each registry type to related JS types, for better code completion",
+      "disabling this can help with performance of your code editor",
+      "snippets for registry names are always available, regardless of this option"
+    ]
+  },
+  "publicClassOnly": {
+    "$default": false,
+    "$value": false,
+    "$comment": "prevent classes that are not public and not referenced from being scanned"
+  },
+  "resolveGlobal": {
+    "$default": true,
+    "$value": true,
+    "$comment": "resolve defined values in `global`"
+  },
+  "'global' Resolving Depth": {
+    "$default": 1,
+    "$value": 1,
+    "$comment": "how deep should ProbeJS Legacy dive into defined values in `global`"
+  },
+  "Class Scanner": {
+    "$default": "EVENTS",
+    "$value": "EVENTS",
+    "$comment": [
+      "can be one of these:",
+      "NONE -> no class scanner",
+      "EVENTS (default) -> scan all forge event subclasses",
+      "FULL -> scan all classes recorded by ForgeModLoader"
+    ]
+  },
+  "Mods with forced Full Scanning": {
+    "$default": [
+      "minecraft"
+    ],
+    "$value": [
+      "minecraft"
+    ],
+    "$comment": "mods described here will have ALL their classes scanned"
+  },
+  "dumpCustomRecipeGenerator": {
+    "$default": false,
+    "$value": false,
+    "$comment": [
+      "KubeJS will generate custom recipe creation method in recipe event, these methods only accept one Json as its arg",
+      "enabling this will allow ProbeJS to dump syntax these JsonSerializer-based recipe creating functions"
+    ]
+  },
+  "Registry Object Filter": {
+    "$default": "^minecraft:.+$",
+    "$value": "^:$",
+    "$comment": [
+      "a string regex used for filtering registry objects.",
+      "Registry objects whose id matches this pattern will always be dumped by ProbeJS Legacy"
+    ]
+  },
+  "Rename Parameter Automatically": {
+    "$default": true,
+    "$value": true,
+    "$comment": "automatically rename `arg123`-like names into some more human readable names"
+  },
+  "Simulate Old Typing": {
+    "$default": true,
+    "$value": true,
+    "$comment": "Generate `Internal` namespace to simulate old typing structure before ProbeJS Legacy 4"
+  }
+}
