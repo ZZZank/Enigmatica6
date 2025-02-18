@@ -26,7 +26,7 @@ block_conversion: {
             if (!recipe.holding.test(item)) {
                 continue;
             }
-            console.log('got it')
+            // console.log('got it')
             player.playSound('ping:bloop');
             event.server.runCommandSilent(`particle minecraft:explosion ${target.x} ${target.y} ${target.z}`);
 

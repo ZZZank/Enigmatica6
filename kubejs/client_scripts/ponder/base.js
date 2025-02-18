@@ -1,7 +1,7 @@
 // priority: 10
 
 
-const categories = [
+const ponderCategories = [
     {
         id: 'enigmatica:basics',
         category_item_id: 'minecraft:cobblestone',
@@ -44,13 +44,13 @@ const categories = [
 ];
 
 onEvent('ponder.tag.registry', (event) => {
-    categories.forEach((category) => {
+    ponderCategories.forEach((category) => {
         event.create(category.id, category.category_item_id, category.title, category.description);
     });
 });
 
 onEvent('ponder.tag', (event) => {
-    categories.forEach((category) => {
+    ponderCategories.forEach((category) => {
         category.items.forEach((item) => {
             event.add(category.id, item);
         });

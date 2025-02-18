@@ -1,5 +1,5 @@
 
-{
+(() => {
     /**
      * @type {$ResourceLocation_[]}
      */
@@ -26,6 +26,6 @@
             event.denyAllInCategory(category)
         })
     })
-}
+})()
 
 
