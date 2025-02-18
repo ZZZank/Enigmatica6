@@ -2,7 +2,7 @@ param(
     [Parameter(Position = 0)]
     [string]$mode = "default",
     [Parameter(Position = 1)]
-    [switch]$uploadExpertMode
+    [switch]$uploadExpertMode = $false
 )
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
