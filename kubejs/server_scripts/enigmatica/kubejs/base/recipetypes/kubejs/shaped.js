@@ -45,7 +45,7 @@ onEvent('recipes', (event) => {
         },
         {
             output: 'kubejs:bright_constellation_box',
-            pattern: ['ABC', 'DEF'],
+            pattern: ['BAC', 'D E', ' F '],
             key: {
                 A: 'mekanism:cardboard_box',
                 B: Item.of(
@@ -71,16 +71,11 @@ onEvent('recipes', (event) => {
             },
             id: `${id_prefix}bright_constellation_box`
         },
-
         {
             output: 'kubejs:dim_constellation_box',
-            pattern: ['ABC', 'DEF', 'GHI'],
+            pattern: ['CAD', 'E F', 'GHI'],
             key: {
                 A: 'mekanism:cardboard_box',
-                B: Item.of(
-                    'astralsorcery:attuned_celestial_crystal',
-                    '{astralsorcery:{constellationName:"astralsorcery:alcara"}}'
-                ).weakNBT(),
                 C: Item.of(
                     'astralsorcery:attuned_celestial_crystal',
                     '{astralsorcery:{constellationName:"astralsorcery:octans"}}'
