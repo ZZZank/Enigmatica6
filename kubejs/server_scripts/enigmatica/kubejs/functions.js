@@ -6,19 +6,19 @@
  * @param {string} str : e.g. `an example sTRing`
  * @returns {string}: e.g. `An Exmaple String`
  */
-const titleCase = (str) => {
+function titleCase(str) {
     return str
         .split(' ')
         .map((str) => str.charAt(0).toUpperCase() + str.substring(1).toLowerCase())
         .join(' ');
-};
+}
 
 /**
  * transform String/JSON style ingredient into Masterful Machinery JSON
  * @param {string|{type?:string,data:string|{},chance?:number}} ingredient
  * @returns {{type:string,data:{},chance?:number}}
  */
-const toMMJson = (ingredient) => {
+function toMMJson(ingredient) {
     if (typeof ingredient == 'string') {
         // '32x kubejs:rough_machine_frame'
         ingredient = { data: toJsonWithCount(ingredient) };
@@ -31,14 +31,14 @@ const toMMJson = (ingredient) => {
     }
     // @ts-ignore
     return ingredient;
-};
+}
 
 /**
  * transform string-style ingredient into JSON style
  * @param {string} ingredient like '3x #forge:grain' or 'minecraft:book'
  * @returns {{tag:string,item:null,count:number}|{tag:null,item:string,count:number}}
  */
-const toJsonWithCount = (ingredient) => {
+function toJsonWithCount(ingredient) {
     const parsed = { tag: null, item: null, count: 1 };
 
     const splited = ingredient.split('x ', 2);
@@ -54,7 +54,7 @@ const toJsonWithCount = (ingredient) => {
         parsed.item = ingredient;
     }
     return parsed;
-};
+}
 
 function randomOf(entries) {
     return Utils.randomOf(Utils.getRandom(), entries);
@@ -65,8 +65,8 @@ function randomOf(entries) {
  * @param {string?} color
  * @returns {string}
  */
-const rawItemStr = (item, color) => {
-    item = Item.of(item)
+function rawItemStr(item, color) {
+    item = Item.of(item);
     const count = item.count > 1 ? `${item.count}*` : '';
     let itemName;
     try {
@@ -93,38 +93,38 @@ const rawItemStr = (item, color) => {
         rawItem.color = color;
     }
     return JSON.stringify(rawItem);
-};
+}
 
 /**
  * run `tellraw` command on a player
- * @param {import("packages/dev/latvian/kubejs/player/$PlayerJS").$PlayerJS<any>} player The target of tellraw command
+ * @param {Internal.PlayerJS<any>} player The target of tellraw command
  * @param {string} str The content of tellraw command
  */
-const tellraw = (player, str) => {
+function tellraw(player, str) {
     player.server.runCommandSilent('/tellraw ' + player.name + ' ' + str);
-};
+}
 
 /**
  * @see unificationBlacklist
  * @param {string} material
  * @param {string} type
  */
-const entryIsBlacklisted = (material, type) => {
+function entryIsBlacklisted(material, type) {
     for (let blacklist of unificationBlacklist) {
         if (blacklist.material == material && blacklist.type == type) {
             return true;
         }
     }
     return false;
-};
+}
 
 /**
  * get the most prefered item in a tag based on priorities from variable `modPriorities`
  * @see modPriorities
  * @param {$IngredientJS_} tag
- * @returns {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS}
+ * @returns {Internal.ItemStackJS}
  */
-const getPreferredItemInTag = (tag) => {
+function getPreferredItemInTag(tag) {
     const items = getItemsInTag(tag);
     if (items.length == 0) {
         return Item.of(air);
@@ -132,14 +132,17 @@ const getPreferredItemInTag = (tag) => {
     //use "max" instead of "sorting", to decrease time complexity from O(n*log(n)) to O(n)
     //being "bigger" here means having smaller index, which means -1, so there's an `-`
     return maxOf(items, (a, b) => -compareIndices(a.mod, b.mod, tag));
-};
+}
 
+/**
+ * @template T
+ * @param {T[]} list 
+ * @param {(a: T, b: T) => number} comparator 
+ * @returns {T}
+ */
 function maxOf(list, comparator) {
     if (list.length == 0) {
         return null;
-    }
-    if (!comparator) {
-        comparator = (a, b) => a - b;
     }
     let targetIndex = 0;
     for (let i = 1; i < list.length; i++) {
@@ -150,6 +153,13 @@ function maxOf(list, comparator) {
     return list[targetIndex];
 }
 
+/**
+ * 
+ * @template T
+ * @param {T[]} arr 
+ * @param {integer} pageSize 
+ * @returns 
+ */
 function toPagedArray(arr, pageSize) {
     if (pageSize <= 0) {
         throw 'Invalid param, `pageSize` must be positive number';
@@ -164,18 +174,18 @@ function toPagedArray(arr, pageSize) {
 
 /**
  * @param {$IngredientJS_} tag
- * @return {import("packages/dev/latvian/kubejs/item/$ItemStackJS").$ItemStackJS[]}
+ * @return {Internal.ItemStackJS[]}
  */
-const getItemsInTag = (tag) => {
+function getItemsInTag(tag) {
     return Ingredient.of(tag).getStacks().toArray();
-};
+}
 
 /**
  * @param {string} a
  * @param {string} b
  * @param {$IngredientJS_?} tag
  */
-const compareIndices = (a, b, tag) => {
+function compareIndices(a, b, tag) {
     if (a == b) return 0; // iff a == b, they'll be found at the same position in modPriorities
 
     for (let mod of modPriorities) {
@@ -187,26 +197,26 @@ const compareIndices = (a, b, tag) => {
         '[' + a + ', ' + b + '] were both unaccounted for in mod unification' + (tag ? ' for ' + tag : '!')
     );
     return 0;
-};
+}
 
 /**
  * Get the stripped variant of targeted log, or `minecraft:air` if not found
  * @param {string} logBlock The id of targeted log block
  * @see buildWoodVariants
  */
-const getStrippedLogFrom = (logBlock) => {
+function getStrippedLogFrom(logBlock) {
     for (let wood of buildWoodVariants) {
         if (wood.logBlock == logBlock) {
             return wood.logBlockStripped;
         }
     }
     return air;
-};
+}
 
 /**
  *
  * @param {$IngredientJS_} item
- * @param {import("packages/dev/latvian/kubejs/player/$PlayerJS").$PlayerJS<any>} player
+ * @param {Internal.PlayerJS<any>} player
  * @returns {boolean}
  */
 const playerHas = (item, player) => {
@@ -243,7 +253,7 @@ const getNextTier = (tiers, tier) => {
 
 /**
  * transplant the md5 from `<type's mod>:kjs_<hash>` onto the supplied prefix
- * @param {$RecipeJS_} recipe
+ * @param {Internal.RecipeJS} recipe
  * @param {string} id_prefix
  */
 const fallback_id = (recipe, id_prefix) => {
