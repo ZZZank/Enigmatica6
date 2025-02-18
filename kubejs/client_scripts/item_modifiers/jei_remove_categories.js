@@ -1,7 +1,9 @@
 
-
-onEvent('kube_jei.deny.categories', event => {
-    event.deny(
+{
+    /**
+     * @type {$ResourceLocation_[]}
+     */
+    const categories = [
         'pneumaticcraft:compressed_iron_explosion',
         'portable_stonecutter:jei_anvil_flattening',
         'masterfulmachinery:machine_structure_auto_iridescent_altar',
@@ -12,5 +14,17 @@ onEvent('kube_jei.deny.categories', event => {
         'masterfulmachinery:machine_structure_gaia_reactor',
         'masterfulmachinery:machine_structure_stellar_neutron_activator',
         'occultism:miner'
-    )
-})
+    ]
+
+    onEvent('kube_jei.deny.categories', event => {
+        event.deny(categories)
+    })
+
+    onEvent('kube_jei.deny.recipes', event => {
+        categories.forEach(category => {
+            event.denyAllInCategory(category)
+        })
+    })
+}
+
+
