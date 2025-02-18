@@ -26,8 +26,14 @@ for (const toCopy of toCopies) {
     for (const toBase of toBases) {
         const toPath = path.join(toBase, toCopy)
         if (fs.existsSync(toPath)) {
-            fs.rmdirSync(toPath)
+            if (fs.statSync(toPath).isDirectory()) {
+                console.log(`copy target path '${toPath}' existed, removing`)
+                fs.rmSync(toPath, { "recursive": true})
+            } else {
+                continue
+            }
         }
+        console.log(`copying from '${fromPath}' to '${toPath}'`)
         fs.cp(fromPath, toPath, { "recursive": true }, (err) => {
             if (err != null) {
                 console.error(err)
