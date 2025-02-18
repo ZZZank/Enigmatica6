@@ -1,7 +1,7 @@
 
 onEvent("kube_jei.register_recipes", event => {
     const ID = new ResourceLocation("enlightened", "recipe_hint")
-    
+
     /**
      * @type {{
      *   inItems: $IngredientJS_[],
@@ -243,6 +243,6 @@ onEvent("kube_jei.register_categories", event => {
             fluidBuilder.applyIngredients(ingredients)
         })
         .setDrawHandler((recipe, matrixStack, mouseX, mouseY) => {
-            arrow.draw(matrixStack, computeArrowPos(SIZE * 3, SIZE * 2), SIZE * 2 + 1)
+            arrow.draw(matrixStack, computeArrowPos(SIZE * 3, SIZE * 2), SIZE * 1.5 + 1)
         })
 })
