@@ -18,9 +18,10 @@ onEvent('recipes', (event) => {
         for (let type of typesToUnify) {
             if (!entryIsBlacklisted(material, type)) {
                 let tagString = `#forge:${type}s/${material}`;
-                let tag = Ingredient.of(tagString);
-                if (tag.stacks.size() > 1) {
-                    event.replaceOutput(tagString, getPreferredItemInTag(tag));
+                let items = getItemsInTag(tagString)
+                if (items.length > 1) {
+                    let replaceWith = maxOf(items, (a, b) => -compareIndices(a.mod, b.mod, tagString))
+                    event.replaceOutput(tagString, replaceWith);
                 }
             }
         }
