@@ -14,15 +14,15 @@
     appreciated, but not required.
 */
 onEvent('recipes', (event) => {
-    materialsToUnify.forEach((material) => {
-        typesToUnify.forEach((type) => {
+    for (let material of materialsToUnify) {
+        for (let type of typesToUnify) {
             if (!entryIsBlacklisted(material, type)) {
-                const tagString = `#forge:${type}s/${material}`;
-                const tag = Ingredient.of(tagString);
-                if (tag.getCount() > 1) {
+                let tagString = `#forge:${type}s/${material}`;
+                let tag = Ingredient.of(tagString);
+                if (tag.stacks.size() > 1) {
                     event.replaceOutput(tagString, getPreferredItemInTag(tag));
                 }
             }
-        });
-    });
+        }
+    }
 });
