@@ -61,8 +61,59 @@ onEvent("kube_jei.register_recipes", event => {
             inItems: ['#minecraft:leaves'],
             catalyst: 'naturesaura:gold_fiber',
             outItems: ['naturesaura:gold_leaf']
+        },
+        {
+            inItems: ['industrialforegoing:water_condensator', 'thermal:device_water_gen', 'cookingforblockheads:sink'],
+            catalyst: "minecraft:water_bucket",
+            outItems: [],
+            outFluids: [Fluid.water()]
+        },
+        {
+            inItems: ['industrialforegoing:plant_gatherer'],
+            catalyst: '#forge:seeds',
+            outItems: [],
+            outFluids: [Fluid.of("industrialforegoing:sludge")]
+        },
+        {
+            inItems: ['industrialforegoing:sewer'],
+            catalyst: 'ars_nouveau:glyph_filter_animal',
+            outItems: [],
+            outFluids: [Fluid.of("industrialforegoing:sewage")]
+        },
+        {
+            inItems: ['industrialforegoing:mob_crusher'],
+            catalyst: 'ars_nouveau:glyph_filter_living',
+            outItems: [],
+            outFluids: [Fluid.of("industrialforegoing:essence")]
+        },
+        {
+            inItems: ['industrialforegoing:animal_rancher'],
+            catalyst: "minecraft:cow_spawn_egg",
+            outItems: [],
+            outFluids: [Fluid.of("minecraft:milk")]
+        },
+        {
+            inItems: ['#forge:dyes/red', '#forge:dyes/green', '#forge:dyes/blue'],
+            catalyst: 'industrialforegoing:dye_mixer',
+            outItems: ['#forge:dyes']
+        },
+        {
+            inItems: ['#forge:mushrooms'],
+            inFluids: [Fluid.water().withAmount(100)],
+            catalyst: 'industrialforegoing:spores_recreator',
+            outItems: ['#forge:mushrooms', '#forge:mushrooms']
         }
     ];
+
+    {
+        const fungus = Ingredient.of(['minecraft:warped_fungus', 'minecraft:crimson_fungus'])
+        recipes.push({
+            inItems: [fungus],
+            inFluids: [Fluid.water().withAmount(100)],
+            catalyst: 'industrialforegoing:spores_recreator',
+            outItems: [fungus, fungus]
+        })
+    }
 
     {
         let weightSum = 0;

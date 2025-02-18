@@ -4,6 +4,7 @@
      * @type {$ResourceLocation_[]}
      */
     const categories = [
+        'industrialforegoing:machine_produce',
         'pneumaticcraft:compressed_iron_explosion',
         'portable_stonecutter:jei_anvil_flattening',
         'masterfulmachinery:machine_structure_auto_iridescent_altar',
