@@ -1,6 +1,6 @@
 
 
-onEvent('kube_jei.deny.recipes', event => {
+onEvent('kube_jei.deny.recipes', (event) => {
     if (global.isNormalMode) {
         return;
     }
@@ -35,7 +35,7 @@ onEvent('kube_jei.deny.recipes', event => {
             event.denyById(recipe.category, id);
         });
     });
-})
+});
 
 onEvent('jei.remove.recipes', (event) => {
     if (global.isNormalMode) {

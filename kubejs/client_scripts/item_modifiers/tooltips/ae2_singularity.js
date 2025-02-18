@@ -1,7 +1,6 @@
-
 {
-    const keyNBT = 'freq'
-    const emojis = '─│┌┐└┘├┤┬┴┼═║╒╓╔╕╖╗╘╙╚╛╜╝╞╟╠╡╢╣╤╥╦╧╨╩╪╫╬▀▄█▌▐░▒▓⚠⚡⚥✂✉✎✔✘❄❣❤⭐'.split('')
+    const keyNBT = 'freq';
+    const emojis = '─│┌┐└┘├┤┬┴┼═║╒╓╔╕╖╗╘╙╚╛╜╝╞╟╠╡╢╣╤╥╦╧╨╩╪╫╬▀▄█▌▐░▒▓⚠⚡⚥✂✉✎✔✘❄❣❤⭐'.split('');
     /**
      * @type {import("packages/dev/latvian/mods/rhino/mod/util/color/$Color").$Color$$Type[]}
      */
@@ -21,11 +20,11 @@
         // 'red',
         'light_purple',
         // 'yellow',
-        'white',
+        'white'
     ];
 
-    const cutDownLen = emojis.length * colorsAe.length
-    const splitLen = colorsAe.length
+    const cutDownLen = emojis.length * colorsAe.length;
+    const splitLen = colorsAe.length;
 
     /**
      * @param {long} freq
@@ -34,7 +33,7 @@
         if (freq == 0) {
             return Text.string('0');
         }
-        const emojified = Text.of('Freq').green().append(Text.of(": ").white());
+        const emojified = Text.of('Freq').green().append(Text.of(': ').white());
         if (freq < 0) {
             freq = -freq;
             emojified.append('-');
@@ -44,10 +43,12 @@
             //do not use "const" in loop, fuck you rhino
             let cut = freq % cutDownLen;
             freq = Math.floor(freq / cutDownLen);
-            emojified.append(Text.string(emojis[Math.floor(cut / splitLen)]).color(colorsAe[Math.floor(cut % splitLen)]))
-            hasNext = (freq != 0);
+            emojified.append(
+                Text.string(emojis[Math.floor(cut / splitLen)]).color(colorsAe[Math.floor(cut % splitLen)])
+            );
+            hasNext = freq != 0;
         }
-        return emojified
+        return emojified;
     }
 
     /*
@@ -71,19 +72,19 @@
     })
         */
 
-    onEvent('item.tooltip', event => {
+    onEvent('item.tooltip', (event) => {
         event.addAdvanced(
-            ["appliedenergistics2:quantum_entangled_singularity"],
+            ['appliedenergistics2:quantum_entangled_singularity'],
             (stack, isAdvanced, tooltips) => {
                 if (!stack.hasNBT()) {
-                    return
+                    return;
                 }
-                const freq = stack.nbt.getLong(keyNBT)
+                const freq = stack.nbt.getLong(keyNBT);
                 if (!freq) {
-                    return
+                    return;
                 }
-                tooltips.add(emojifiedFreq(freq))
+                tooltips.add(emojifiedFreq(freq));
             }
-        )
-    })
+        );
+    });
 }

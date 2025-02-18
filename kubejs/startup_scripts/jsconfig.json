@@ -2,19 +2,12 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES2015",
-        "lib": [
-            "ES5",
-            "ES2015"
-        ],
+        "lib": ["ES5", "ES2015"],
         "rootDir": ".",
-        "typeRoots": [
-            "../../.probe/startup/probe-types"
-        ],
+        "typeRoots": ["../../.probe/startup/probe-types"],
         "baseUrl": "../../.probe/startup/probe-types",
         "skipLibCheck": true,
         "checkJs": true
     },
-    "include": [
-        "./**/*.js"
-    ]
+    "include": ["./**/*.js"]
 }

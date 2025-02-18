@@ -17,5 +17,5 @@ if (DEBUG) {
         console.log('hit type: ' + event.getRayTraceResult().getType());
         arrow.lerpMotion(0, 1, 0);
         const kjsed = arrow.asKJS();
-    })
+    });
 }

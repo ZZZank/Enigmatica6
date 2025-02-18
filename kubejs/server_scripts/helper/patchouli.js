@@ -1,9 +1,9 @@
 // priority: 1005
 
-const $PatchouliAPI = java("packages/vazkii/patchouli/api/$PatchouliAPI");
+const $PatchouliAPI = java('packages/vazkii/patchouli/api/$PatchouliAPI');
 
 // @ts-ignore
-const $Character = java("java.lang.Character");
+const $Character = java('java.lang.Character');
 
 /**
  * @param {$ResourceLocation_} id
@@ -28,11 +28,11 @@ PatchouliMultiblock.prototype = {
     /**
      * the `event` param is only used for informing users that registering should only happens in such event,
      * and the event will not be used
-     * 
+     *
      * note that `$PatchouliAPI.instance.showMultiblock(...)` does not need registering
      * @param {$StartupEventJS_} event
      */
     register: function (event) {
         $PatchouliAPI.get().registerMultiblock(this.id, this.makePatchouliMultiblock());
-    },
+    }
 };

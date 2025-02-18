@@ -55,7 +55,7 @@ if (DEBUG) {
         //在游戏初始化时注册其结构
         global.tMulti.register(event);
     });
-    
+
     onEvent('block.right_click', (event) => {
         const { block, player, item } = event;
         if (item.id.toString() != 'mekanism:energy_tablet' || !player.isCreativeMode()) {
@@ -72,4 +72,4 @@ if (DEBUG) {
             Rotation.NONE
         );
     });
-}    
+}

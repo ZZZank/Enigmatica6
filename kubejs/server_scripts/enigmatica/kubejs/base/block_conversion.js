@@ -5,24 +5,18 @@ block_conversion: {
     const AIR_RL = new ResourceLocation("air")
 
     onEvent('block.right_click', (event) => {
-        const { player, item, hand } = event
-        if (!player
-            || player.fake
-            || !player.crouching
-            || item.empty
-            || hand != Hand.MAIN_HAND
-        ) {
+        const { player, item, hand } = event;
+        if (!player || player.fake || !player.crouching || item.empty || hand != Hand.MAIN_HAND) {
             return;
         }
 
         const target = event.block;
         const recipes = blockConvCompiled[target.id]
         if (!recipes) {
-            return
+            return;
         }
 
         for (let recipe of recipes) {
-
             if (!recipe.holding.test(item)) {
                 continue;
             }
