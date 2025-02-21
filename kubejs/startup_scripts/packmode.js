@@ -1,30 +1,42 @@
 // priority: 1010
 
-const validPackMode = ['normal', 'expert'];
-const defaultConfig = {
-    mode: 'normal',
-    message: `Valid modes are [${validPackMode}].`
-};
-const configName = 'mode.json';
+const EnigPackMode = (() => {
+    const validPackMode = ['normal', 'expert'];
+    const defaultConfig = {
+        mode: 'normal',
+        message: `Valid modes are [${validPackMode}].`
+    };
+    const configName = 'mode.json';
 
-let config = JsonIO.read(configName);
-if (!config || !config.mode) {
-    JsonIO.write(configName, defaultConfig);
-    console.log(`Created new ${configName}`);
+    /**
+     * @type {typeof defaultConfig}
+     */
     // @ts-ignore
-    config = defaultConfig;
-}
-if (validPackMode.indexOf(config.mode) == -1) {
-    JsonIO.write(configName, defaultConfig);
-    config.mode = defaultConfig.mode;
-    console.log(
-        `Overwrote ${configName}, because the mode ${config.mode} was found. Valid modes are [${validPackMode}].`
-    );
-}
+    let config = JsonIO.read(configName);
+    if (!config || !config.mode) {
+        JsonIO.write(configName, defaultConfig);
+        console.log(`Created new ${configName}`);
+        config = defaultConfig;
+    }
+    
+    if (validPackMode.indexOf(config.mode) == -1) {
+        JsonIO.write(configName, defaultConfig);
+        config.mode = defaultConfig.mode;
+        console.log(
+            `Overwrote ${configName}, because the mode ${config.mode} was found. Valid modes are [${validPackMode}].`
+        );
+    }
+    
+    console.log(`Current packmode is: ${global.packmode}`);
 
-console.log(`Current packmode is: ${global.packmode}`);
+    return {
+        validModes: validPackMode,
+        defaultConfig: defaultConfig,
+        config: config
+    }
+})()
 
-const packMode = config.mode;
+const packMode = EnigPackMode.config.mode;
 const isNormalMode = packMode == 'normal';
 const isExpertMode = packMode == 'expert';
 

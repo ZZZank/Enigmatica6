@@ -9,6 +9,8 @@ if (false) {
             && event.item.id == 'redstone_arsenal:obsidian_rod'
         ) {
             player.tell(Ingredient.of("#forge:nuggets/lead").stacks.size())
+            player.tell(`global['isExpertMode']: ${global['isExpertMode']}`)
+            player.tell(`global['isNormalMode']: ${global['isNormalMode']}`)
         }
     })
 }

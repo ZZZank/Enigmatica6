@@ -43,9 +43,10 @@ onEvent('recipes', (event) => {
             }
         ];
 
+        const cutting = event.recipes.create.cutting;
+
         recipes.forEach((recipe) => {
-            const builder = event.recipes.create
-                .cutting(
+            const builder = cutting(
                     [Item.of(recipe.output, recipe.count), Item.of(recipe.secondaryOutput, 1)],
                     recipe.input
                 )
