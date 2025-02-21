@@ -202,7 +202,7 @@ onEvent("kube_jei.register_categories", event => {
             }
             if (outFluids) {
                 // @ts-ignore
-                ingredients.setFluidInputs(outFluids)
+                ingredients.setFluidOutputs(outFluids)
             }
         })
         .handleLookup((layout, recipe, ingredients) => {
