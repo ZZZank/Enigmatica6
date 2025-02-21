@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     event.add('forge:storage_blocks', ['minecraft:glowstone', 'betterendforge:aurora_crystal']);
 

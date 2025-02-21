@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const bookshelves = [
     'betterendforge:dragon_tree_bookshelf',
     'betterendforge:end_lotus_bookshelf',

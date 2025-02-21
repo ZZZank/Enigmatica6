@@ -1,5 +1,3 @@
-
-
 {
     const stageMap = {
         // item : stage ,

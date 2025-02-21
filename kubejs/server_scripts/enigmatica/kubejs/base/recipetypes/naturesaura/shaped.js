@@ -1,5 +1,4 @@
-
-onEvent('recipes', event => {
+onEvent('recipes', (event) => {
     const recipes = [
         {
             output: 'naturesaura:auto_crafter',
@@ -11,10 +10,10 @@ onEvent('recipes', event => {
                 D: 'create:chute'
             },
             id: 'naturesaura:auto_crafter'
-        },
-    ]
+        }
+    ];
 
     recipes.forEach((recipe) => {
         event.shaped(recipe.output, recipe.pattern, recipe.key).id(recipe.id);
     });
-})
+});

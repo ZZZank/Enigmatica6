@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 // priority of which mod output should come from, if applicable
 const modPriorities = [
     'emendatusenigmatica',

@@ -1,4 +1,3 @@
-
 (() => {
     /**
      * @type {$ResourceLocation_[]}
@@ -15,17 +14,15 @@
         'masterfulmachinery:machine_structure_gaia_reactor',
         'masterfulmachinery:machine_structure_stellar_neutron_activator',
         'occultism:miner'
-    ]
+    ];
 
-    onEvent('kube_jei.deny.categories', event => {
-        event.deny(categories)
-    })
+    onEvent('kube_jei.deny.categories', (event) => {
+        event.deny(categories);
+    });
 
-    onEvent('kube_jei.deny.recipes', event => {
-        categories.forEach(category => {
-            event.denyAllInCategory(category)
-        })
-    })
-})()
-
-
+    onEvent('kube_jei.deny.recipes', (event) => {
+        categories.forEach((category) => {
+            event.denyAllInCategory(category);
+        });
+    });
+})();

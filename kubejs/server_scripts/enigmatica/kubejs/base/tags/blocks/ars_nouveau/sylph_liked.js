@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     event.add('ars_nouveau:sylph/kinda_likes', ['minecraft:melon']);
 

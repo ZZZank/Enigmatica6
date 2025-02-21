@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     const items = [
         /pneumaticcraft:(reinforced_)?air_canister/, // 10 & 20 bar canisters

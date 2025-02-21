@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('forge:nuggets', [
         'betterendforge:terminite_nugget',

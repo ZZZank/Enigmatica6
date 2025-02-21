@@ -1,5 +1,3 @@
-
-
 onEvent('item.registry', (event) => {
     const generalItems = [
         // 'unit_fe',

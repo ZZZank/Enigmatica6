@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.get('enigmatica:washables/terracotta').add(/minecraft:\w+_terracotta/);
     event

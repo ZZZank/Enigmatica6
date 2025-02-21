@@ -1,5 +1,3 @@
-
-
 const $GasDeferredRegister = java('mekanism.common.registration.impl.GasDeferredRegister');
 const $SlurryDeferredRegister = java('mekanism.common.registration.impl.SlurryDeferredRegister');
 const $InfuseTypeDeferredRegister = java('mekanism.common.registration.impl.InfuseTypeDeferredRegister');

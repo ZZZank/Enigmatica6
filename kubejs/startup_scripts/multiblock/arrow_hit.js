@@ -1,5 +1,3 @@
-
-
 if (DEBUG) {
     onForgeEvent('net.minecraftforge.event.entity.ProjectileImpactEvent$Arrow', (event) => {
         const arrow = event.arrow;

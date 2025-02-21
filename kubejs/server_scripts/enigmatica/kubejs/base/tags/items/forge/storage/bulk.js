@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = ['botania:black_hole_talisman', 'industrialforegoing:black_hole_controller'];
 

@@ -1,4 +1,3 @@
-
 onEvent('player.logged_in', (event) => {
     const player = event.player;
     const startingItemsGameStage = 'starting_items';

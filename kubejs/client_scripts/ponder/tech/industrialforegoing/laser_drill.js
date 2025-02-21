@@ -1,6 +1,5 @@
 // priority: 9
 
-
 // TODO: the text on this one... isn't the best, so it'd be
 //  great if someone could help patch this up before release!
 
@@ -293,10 +292,9 @@ onEvent('ponder.registry', (event) => {
                             .showing(PonderIcons.I_CONFIRM)
                             .withItem(
                                 randomOf([
-                                        'emendatusenigmatica:uranium_ore',
-                                        'emendatusenigmatica:emerald_ore'
-                                    ]
-                                )
+                                    'emendatusenigmatica:uranium_ore',
+                                    'emendatusenigmatica:emerald_ore'
+                                ])
                             ),
                         120
                     );

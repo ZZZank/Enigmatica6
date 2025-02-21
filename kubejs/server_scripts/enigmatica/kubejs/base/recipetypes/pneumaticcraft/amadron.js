@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     /* Usage Documentation: https://github.com/TeamPneumatic/pnc-repressurized/wiki/Amadron-and-Datapacks#1152 */
     const id_prefix = 'enigmatica:base/pneumaticcraft/amadron/';

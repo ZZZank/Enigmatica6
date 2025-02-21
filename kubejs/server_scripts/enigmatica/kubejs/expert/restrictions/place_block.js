@@ -1,4 +1,3 @@
-
 restrictions.block_place = [
     /*
     {

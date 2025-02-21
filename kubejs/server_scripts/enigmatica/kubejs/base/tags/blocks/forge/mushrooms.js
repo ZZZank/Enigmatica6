@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     event.add('forge:mushrooms', [
         'minecraft:brown_mushroom',

@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     const items = [
         'emendatusenigmatica:aluminum_chunk',

@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event
         .get('enigmatica:candle_materials')

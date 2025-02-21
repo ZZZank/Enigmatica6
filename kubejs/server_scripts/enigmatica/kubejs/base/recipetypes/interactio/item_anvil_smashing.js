@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/interactio/item_anvil_smashing/';
     const recipes = [

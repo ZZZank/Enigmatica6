@@ -1,6 +1,5 @@
-
-onEvent("kube_jei.register_recipes", event => {
-    const ID = new ResourceLocation("enlightened", "recipe_hint")
+onEvent('kube_jei.register_recipes', (event) => {
+    const ID = new ResourceLocation('enlightened', 'recipe_hint');
 
     /**
      * @type {{
@@ -21,10 +20,7 @@ onEvent("kube_jei.register_recipes", event => {
             inItems: [],
             catalyst: 'industrialforegoing:latex_processing_unit',
             outItems: ['industrialforegoing:tinydryrubber'],
-            inFluids: [
-                Fluid.of('industrialforegoing:latex', 100),
-                Fluid.of('minecraft:water', 500)
-            ]
+            inFluids: [Fluid.of('industrialforegoing:latex', 100), Fluid.of('minecraft:water', 500)]
         },
         {
             inItems: [],
@@ -63,8 +59,12 @@ onEvent("kube_jei.register_recipes", event => {
             outItems: ['naturesaura:gold_leaf']
         },
         {
-            inItems: ['industrialforegoing:water_condensator', 'thermal:device_water_gen', 'cookingforblockheads:sink'],
-            catalyst: "minecraft:water_bucket",
+            inItems: [
+                'industrialforegoing:water_condensator',
+                'thermal:device_water_gen',
+                'cookingforblockheads:sink'
+            ],
+            catalyst: 'minecraft:water_bucket',
             outItems: [],
             outFluids: [Fluid.water()]
         },
@@ -72,25 +72,25 @@ onEvent("kube_jei.register_recipes", event => {
             inItems: ['industrialforegoing:plant_gatherer'],
             catalyst: '#forge:seeds',
             outItems: [],
-            outFluids: [Fluid.of("industrialforegoing:sludge")]
+            outFluids: [Fluid.of('industrialforegoing:sludge')]
         },
         {
             inItems: ['industrialforegoing:sewer'],
             catalyst: 'ars_nouveau:glyph_filter_animal',
             outItems: [],
-            outFluids: [Fluid.of("industrialforegoing:sewage")]
+            outFluids: [Fluid.of('industrialforegoing:sewage')]
         },
         {
             inItems: ['industrialforegoing:mob_crusher'],
             catalyst: 'ars_nouveau:glyph_filter_living',
             outItems: [],
-            outFluids: [Fluid.of("industrialforegoing:essence")]
+            outFluids: [Fluid.of('industrialforegoing:essence')]
         },
         {
             inItems: ['industrialforegoing:animal_rancher'],
-            catalyst: "minecraft:cow_spawn_egg",
+            catalyst: 'minecraft:cow_spawn_egg',
             outItems: [],
-            outFluids: [Fluid.of("minecraft:milk")]
+            outFluids: [Fluid.of('minecraft:milk')]
         },
         {
             inItems: ['#forge:dyes/red', '#forge:dyes/green', '#forge:dyes/blue'],
@@ -106,13 +106,13 @@ onEvent("kube_jei.register_recipes", event => {
     ];
 
     {
-        const fungus = Ingredient.of(['minecraft:warped_fungus', 'minecraft:crimson_fungus'])
+        const fungus = Ingredient.of(['minecraft:warped_fungus', 'minecraft:crimson_fungus']);
         recipes.push({
             inItems: [fungus],
             inFluids: [Fluid.water().withAmount(100)],
             catalyst: 'industrialforegoing:spores_recreator',
             outItems: [fungus, fungus]
-        })
+        });
     }
 
     {
@@ -155,33 +155,32 @@ onEvent("kube_jei.register_recipes", event => {
             .sort((a, b) => a.weight - b.weight)
             .map((entry) => withChanceInName(entry.item, entry.weight / weightSum));
 
-        recipes.push(
-            {
-                inItems: [
-                    Item.of('astralsorcery:attuned_rock_crystal', {
-                        astralsorcery: { constellationName: 'astralsorcery:mineralis' }
-                    })
-                ],
-                catalyst: 'astralsorcery:ritual_pedestal',
-                outItems: spreadArraySizeEnsured(perk_stone_enrichment_ore, 6, Item.getEmpty())
-            }
-        )
+        recipes.push({
+            inItems: [
+                Item.of('astralsorcery:attuned_rock_crystal', {
+                    astralsorcery: { constellationName: 'astralsorcery:mineralis' }
+                })
+            ],
+            catalyst: 'astralsorcery:ritual_pedestal',
+            outItems: spreadArraySizeEnsured(perk_stone_enrichment_ore, 6, Item.getEmpty())
+        });
     }
 
-    const builder = event.custom(ID)
-    recipes.forEach(recipe => builder.add(recipe))
-})
+    const builder = event.custom(ID);
+    recipes.forEach((recipe) => builder.add(recipe));
+});
 
-onEvent("kube_jei.register_categories", event => {
-    const { drawables } = event
-    const arrow = drawables.arrow()
+onEvent('kube_jei.register_categories', (event) => {
+    const { drawables } = event;
+    const arrow = drawables.arrow();
 
-    const SIZE = 18
-    const ID = new ResourceLocation("enlightened", "recipe_hint")
+    const SIZE = 18;
+    const ID = new ResourceLocation('enlightened', 'recipe_hint');
 
-    event.custom(ID)
+    event
+        .custom(ID)
         .setTitle('Recipe Hints')
-        .setIcon(drawables.ingredientItem("minecraft:item_frame"))
+        .setIcon(drawables.ingredientItem('minecraft:item_frame'))
         .setBackground(drawables.blank(SIZE * 8, SIZE * 3))
         .setFillIngredientsHandler((recipes, ingredients) => {
             /**
@@ -193,16 +192,16 @@ onEvent("kube_jei.register_categories", event => {
              *   outFluids?: $FluidStackJS_[]
              * }}
              */
-            const { inItems, inFluids, catalyst, outItems, outFluids } = recipes.data
-            ingredients.setItemInputs([catalyst].concat(inItems))
-            ingredients.setItemOutputs(outItems)
+            const { inItems, inFluids, catalyst, outItems, outFluids } = recipes.data;
+            ingredients.setItemInputs([catalyst].concat(inItems));
+            ingredients.setItemOutputs(outItems);
             if (inFluids) {
                 // @ts-ignore
-                ingredients.setFluidInputs(inFluids)
+                ingredients.setFluidInputs(inFluids);
             }
             if (outFluids) {
                 // @ts-ignore
-                ingredients.setFluidOutputs(outFluids)
+                ingredients.setFluidOutputs(outFluids);
             }
         })
         .handleLookup((layout, recipe, ingredients) => {
@@ -217,32 +216,36 @@ onEvent("kube_jei.register_categories", event => {
             */
 
             //catalyst
-            itemBuilder.addSlot(SIZE * 3.5, 0)
+            itemBuilder.addSlot(SIZE * 3.5, 0);
             //inItems
-            itemBuilder.addSlotGrid(0, 18, 2, 3)
+            itemBuilder.addSlotGrid(0, 18, 2, 3);
             //inFluids
-            fluidBuilder.addSlot(SIZE * 0.5, 0)
+            fluidBuilder
+                .addSlot(SIZE * 0.5, 0)
                 .setShowCapacity(true)
-                .setCapacityMb(2000)
-            fluidBuilder.addSlot(SIZE * 1.5, 0)
+                .setCapacityMb(2000);
+            fluidBuilder
+                .addSlot(SIZE * 1.5, 0)
                 .setShowCapacity(true)
-                .setCapacityMb(2000)
+                .setCapacityMb(2000);
             //outItems
-            itemBuilder.addSlotGrid(SIZE * 5, 18, 2, 3).forEach(slot => slot.setInput(false))
+            itemBuilder.addSlotGrid(SIZE * 5, 18, 2, 3).forEach((slot) => slot.setInput(false));
             //outFluids
-            fluidBuilder.addSlot(SIZE * 5.5, 0)
+            fluidBuilder
+                .addSlot(SIZE * 5.5, 0)
                 .setShowCapacity(true)
                 .setCapacityMb(2000)
-                .setInput(false)
-            fluidBuilder.addSlot(SIZE * 6.5, 0)
+                .setInput(false);
+            fluidBuilder
+                .addSlot(SIZE * 6.5, 0)
                 .setShowCapacity(true)
                 .setCapacityMb(2000)
-                .setInput(false)
+                .setInput(false);
 
-            itemBuilder.applyIngredients(ingredients)
-            fluidBuilder.applyIngredients(ingredients)
+            itemBuilder.applyIngredients(ingredients);
+            fluidBuilder.applyIngredients(ingredients);
         })
         .setDrawHandler((recipe, matrixStack, mouseX, mouseY) => {
-            arrow.draw(matrixStack, computeArrowPos(SIZE * 3, SIZE * 2), SIZE * 1.5 + 1)
-        })
-})
+            arrow.draw(matrixStack, computeArrowPos(SIZE * 3, SIZE * 2), SIZE * 1.5 + 1);
+        });
+});

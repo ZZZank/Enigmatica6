@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('forge:mushrooms', [
         'byg:death_cap',

@@ -1,5 +1,3 @@
-
-
 onEvent('kube_jei.deny.recipes', (event) => {
     if (global.isNormalMode) {
         return;

@@ -1,10 +1,9 @@
-
-onEvent("kube_jei.register_recipes", event => {
+onEvent('kube_jei.register_recipes', (event) => {
     if (!global['isExpertMode']) {
-        return
+        return;
     }
-    const ID = new ResourceLocation("enlightened", "recipe_hint")
-    
+    const ID = new ResourceLocation('enlightened', 'recipe_hint');
+
     /**
      * @type {{
      *   inItems: $IngredientJS_[],
@@ -47,13 +46,13 @@ onEvent("kube_jei.register_recipes", event => {
         }
     ];
 
-    const spreadKeys = ['outItems']
-    recipes.forEach(recipe => {
-        spreadKeys.forEach(key => {
-            recipe[key] = spreadArraySizeEnsured(recipe[key], 6, Item.getEmpty())
-        })
-    })
+    const spreadKeys = ['outItems'];
+    recipes.forEach((recipe) => {
+        spreadKeys.forEach((key) => {
+            recipe[key] = spreadArraySizeEnsured(recipe[key], 6, Item.getEmpty());
+        });
+    });
 
-    const builder = event.custom(ID)
-    recipes.forEach(recipe => builder.add(recipe))
-})
+    const builder = event.custom(ID);
+    recipes.forEach((recipe) => builder.add(recipe));
+});

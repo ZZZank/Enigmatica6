@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     const id_prefix = 'appliedenergistics2:base/inscriber/';
 

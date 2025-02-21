@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let anvil_blocks = [
         '#forge:storage_blocks/refined_obsidian',

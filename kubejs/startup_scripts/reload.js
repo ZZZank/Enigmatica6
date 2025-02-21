@@ -1,5 +1,3 @@
-
-
 global.onReload = () => {
     //reload powah configs
     const $PowahConfigs = java('owmii.powah.config.Configs');

@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 //List of all items used to create dyes and the dyes they create
 const dyeSources = [
     {

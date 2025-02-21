@@ -1,4 +1,3 @@
-
 onEvent('entity_type.tags', (event) => {
     event
         .get('enigmatica:mob_spawner_blacklist')

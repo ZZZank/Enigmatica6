@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/architects_palette/warping/';
 

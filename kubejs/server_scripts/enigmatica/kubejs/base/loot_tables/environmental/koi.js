@@ -1,5 +1,3 @@
-
-
 onEvent('entity.loot_tables', (event) => {
     event.addEntity('environmental:koi', (table) => {
         table.addPool((pool) => {

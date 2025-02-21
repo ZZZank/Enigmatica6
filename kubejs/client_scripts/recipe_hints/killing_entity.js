@@ -1,9 +1,4 @@
-
-
-const {
-    killing_entity_recipes,
-    killing_entity_id
-} = (() => {
+const { killing_entity_recipes, killing_entity_id } = (() => {
     const id_prefix = 'enlightened6:killing_entity/';
     /**
      * @type {{
@@ -16,8 +11,9 @@ const {
     const recipes = [
         {
             target: [
-                Item.of('ars_nouveau:glyph_filter_monster')
-                    .withName("Any monsters with no more than 20 healths(10 hearts)")
+                Item.of('ars_nouveau:glyph_filter_monster').withName(
+                    'Any monsters with no more than 20 healths(10 hearts)'
+                )
             ],
             weapon: Item.of('minecraft:trident', {
                 nullptrType: 1,
@@ -110,34 +106,37 @@ const {
         }
     ];
 
-    recipes.forEach(recipe => {
+    recipes.forEach((recipe) => {
         if (!recipe.weapon) {
-            recipe.weapon = '#forge:weapons'
+            recipe.weapon = '#forge:weapons';
         }
-    })
+    });
 
     return {
-        killing_entity_id: new ResourceLocation("enlightened6", "killing_entity"),
+        killing_entity_id: new ResourceLocation('enlightened6', 'killing_entity'),
         killing_entity_recipes: recipes
-    }
-})()
+    };
+})();
 
-onEvent('kube_jei.register_recipes', event => {
-    const builder = event.custom(killing_entity_id)
-    killing_entity_recipes.forEach(recipe => builder.add(recipe))
-})
+onEvent('kube_jei.register_recipes', (event) => {
+    const builder = event.custom(killing_entity_id);
+    killing_entity_recipes.forEach((recipe) => builder.add(recipe));
+});
 
-onEvent("kube_jei.register_categories", event => {
-    const { drawables, jeiHelpers } = event
-    const arrow = drawables.arrow()
+onEvent('kube_jei.register_categories', (event) => {
+    const { drawables, jeiHelpers } = event;
+    const arrow = drawables.arrow();
 
-    event.custom(killing_entity_id)
-        .setTitle(Text.of("Killing Entity"))
+    event
+        .custom(killing_entity_id)
+        .setTitle(Text.of('Killing Entity'))
         .setBackground(drawables.blank(180, 40))
-        .setIcon(drawables.dual(
-            drawables.ingredientItem("minecraft:iron_sword"),
-            drawables.ingredientItem("minecraft:bow")
-        ))
+        .setIcon(
+            drawables.dual(
+                drawables.ingredientItem('minecraft:iron_sword'),
+                drawables.ingredientItem('minecraft:bow')
+            )
+        )
         .fillIngredients((recipe, ingredients) => {
             /**
              * @type {{
@@ -146,24 +145,23 @@ onEvent("kube_jei.register_categories", event => {
              *  output: $ItemStackJS_[]
              * }}
              */
-            const { target, weapon, output } = recipe.data
-            ingredients.setItemInputs([weapon].concat(target))
-            ingredients.setItemOutputs(output)
+            const { target, weapon, output } = recipe.data;
+            ingredients.setItemInputs([weapon].concat(target));
+            ingredients.setItemOutputs(output);
         })
         .handleLookup((layout, recipe, ingredients) => {
             const itemBuilder = layout.itemGroupBuilder;
 
             //weapon
-            itemBuilder.addSlot(18 * 4, 0)
+            itemBuilder.addSlot(18 * 4, 0);
             //target
-            itemBuilder.addSlotGrid(0, 0, 3, 2)
+            itemBuilder.addSlotGrid(0, 0, 3, 2);
             //output
-            itemBuilder.addSlotGrid(18 * 6, 0, 3, 2)
-                .forEach(slot => slot.setInput(false))
+            itemBuilder.addSlotGrid(18 * 6, 0, 3, 2).forEach((slot) => slot.setInput(false));
 
-            itemBuilder.applyIngredients(ingredients)
+            itemBuilder.applyIngredients(ingredients);
         })
         .setDrawHandler((recipe, matrixStack, mouseX, mouseY) => {
-            arrow.draw(matrixStack, computeArrowPos(18 * 4, 18), 18 + 1)
-        })
-})
+            arrow.draw(matrixStack, computeArrowPos(18 * 4, 18), 18 + 1);
+        });
+});

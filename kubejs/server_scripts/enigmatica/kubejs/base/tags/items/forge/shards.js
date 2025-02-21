@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('forge:shards', [
         'betterendforge:ender_shard',

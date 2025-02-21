@@ -1,6 +1,5 @@
 // priority: 1010
 
-
 // Used to determine which materials to unify
 const materialsToUnify = [
     'iron',

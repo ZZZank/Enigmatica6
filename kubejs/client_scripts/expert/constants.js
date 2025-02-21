@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const disabledItemsExpert = [
     //tool
     'appliedenergistics2:sky_compass',

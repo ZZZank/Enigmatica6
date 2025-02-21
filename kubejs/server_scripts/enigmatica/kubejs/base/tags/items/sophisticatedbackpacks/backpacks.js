@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('sophisticatedbackpacks:base_backpack', 'sophisticatedbackpacks:backpack');
     event.add('sophisticatedbackpacks:iron_backpack', 'sophisticatedbackpacks:iron_backpack');

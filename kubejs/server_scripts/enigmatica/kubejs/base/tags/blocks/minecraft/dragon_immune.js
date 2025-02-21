@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     const blocks = [
         'occultism:chalk_glyph_white',

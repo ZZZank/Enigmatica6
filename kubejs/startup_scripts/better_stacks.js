@@ -1,4 +1,3 @@
-
 onEvent('item.modification', (event) => {
     const increaseStackSize = [
         'alexsmobs:emu_egg',

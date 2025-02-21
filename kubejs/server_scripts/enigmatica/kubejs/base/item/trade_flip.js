@@ -1,5 +1,3 @@
-
-
 const $VillagerEntity = java('net.minecraft.entity.merchant.villager.VillagerEntity');
 const $MerchantOffers = java('net.minecraft.item.MerchantOffers');
 const $MerchantOffer = java('net.minecraft.item.MerchantOffer');

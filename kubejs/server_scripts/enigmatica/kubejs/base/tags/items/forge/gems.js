@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     const gems = 'forge:gems';
     const gems_ender = gems + '/ender';

@@ -1,4 +1,3 @@
-
 onEvent('jei.hide.items', (event) => {
     // @ts-ignore
     itemsToHide.push(disabledItems);

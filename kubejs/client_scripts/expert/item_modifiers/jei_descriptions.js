@@ -1,5 +1,3 @@
-
-
 onEvent('jei.information', (event) => {
     if (global.isNormalMode) {
         return;

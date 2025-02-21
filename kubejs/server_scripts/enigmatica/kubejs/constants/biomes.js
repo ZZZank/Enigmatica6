@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const end_biomes = [
     'minecraft:the_end',
     'minecraft:the_void',

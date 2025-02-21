@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/create/filling/';
     const recipes = [

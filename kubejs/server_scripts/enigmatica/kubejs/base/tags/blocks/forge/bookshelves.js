@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     event.add('forge:bookshelves', [
         'betterendforge:jellyshroom_bookshelf',

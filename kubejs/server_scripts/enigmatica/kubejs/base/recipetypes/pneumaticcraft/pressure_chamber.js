@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/pneumaticcraft/pressure_chamber/';
     const recipes = [
@@ -364,7 +363,9 @@ onEvent('recipes', (event) => {
                     BlockEntityTag: {
                         SavedTanks: { Tank: { Amount: 32000, FluidName: 'immersiveengineering:biodiesel' } }
                     }
-                }).weakNBT().toJson(),
+                })
+                    .weakNBT()
+                    .toJson(),
                 'immersiveengineering:toolupgrade_drill_waterproof',
                 'immersiveengineering:toolupgrade_drill_lube',
                 '3x immersiveengineering:toolupgrade_drill_damage',
@@ -394,9 +395,7 @@ onEvent('recipes', (event) => {
                 Item.of('pneumaticcraft:pneumatic_helmet').ignoreNBT().toJson()
             ],
             pressure: 4.5,
-            results: [
-                Item.of('resourcefulbees:bee_jar', { Entity: 'resourcefulbees:pcbee_bee' })
-            ],
+            results: [Item.of('resourcefulbees:bee_jar', { Entity: 'resourcefulbees:pcbee_bee' })],
             id: `${id_prefix}pcbee_jar`
         }
     ];

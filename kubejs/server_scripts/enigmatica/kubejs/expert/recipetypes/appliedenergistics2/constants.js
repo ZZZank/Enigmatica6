@@ -1,6 +1,5 @@
 // priority: 1001
 
-
 const itemsToRemoveAE = [
     'appliedenergistics2:nether_quartz_dust',
     'appliedenergistics2:fluix_dust',

@@ -1,6 +1,5 @@
 // priority: 10
 
-
 const ponderCategories = [
     {
         id: 'enigmatica:basics',

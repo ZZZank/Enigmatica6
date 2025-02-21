@@ -1,5 +1,3 @@
-
-
 onEvent('item.tooltip', (event) => {
     /**
      * @type {{target:$IngredientJS_, handler:$ItemTooltipEventJS$StaticTooltipHandlerFromJS_}[]}

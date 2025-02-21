@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.get('botanypots:hopper_botany_pots').removeAll();
 

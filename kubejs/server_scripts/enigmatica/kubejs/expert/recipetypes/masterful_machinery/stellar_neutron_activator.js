@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     if (global.isNormalMode) {
         return;

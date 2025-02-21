@@ -1,6 +1,5 @@
 // priority: 900
 
-
 onEvent('recipes', (event) => {
     soilRegistry.forEach((soil) => {
         soils_botany_pots(soil);

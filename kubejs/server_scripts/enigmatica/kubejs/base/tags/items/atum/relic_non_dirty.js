@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.get('atum:relic_non_dirty/idol').add(/atum:relic_(?!dirty)\w+_idol/);
     event.get('atum:relic_non_dirty/necklace').add(/atum:relic_(?!dirty)\w+_necklace/);

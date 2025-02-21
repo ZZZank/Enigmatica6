@@ -1,4 +1,3 @@
-
 const PatchouliAPI = java('vazkii.patchouli.api.PatchouliAPI');
 // @ts-ignore
 const Character = java('java.lang.Character');
