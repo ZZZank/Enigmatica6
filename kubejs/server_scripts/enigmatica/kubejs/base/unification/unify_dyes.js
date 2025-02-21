@@ -1,6 +1,5 @@
 // priority: 900
 
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/unification/unify_dyes/';
 

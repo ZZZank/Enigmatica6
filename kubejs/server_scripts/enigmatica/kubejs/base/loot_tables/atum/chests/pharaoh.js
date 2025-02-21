@@ -1,4 +1,3 @@
-
 onEvent('chest.loot_tables', (event) => {
     const pools = [
         {

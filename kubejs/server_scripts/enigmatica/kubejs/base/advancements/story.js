@@ -1,4 +1,3 @@
-
 onEvent('server.datapack.high_priority', (event) => {
     event.addJson('minecraft:advancements/story/mine_stone.json', {
         parent: 'minecraft:story/root',

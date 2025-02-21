@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/masterful_machinery/advanced_assembly_table/';
     const recipes = [];

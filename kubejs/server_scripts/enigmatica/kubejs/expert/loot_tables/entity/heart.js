@@ -1,4 +1,3 @@
-
 onEvent('entity.loot_tables', (event) => {
     if (global.isNormalMode) {
         return;

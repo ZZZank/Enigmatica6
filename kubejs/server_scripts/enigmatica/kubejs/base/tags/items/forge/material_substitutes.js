@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let types = ['storage_blocks', 'ingots', 'nuggets', 'dusts', 'plates', 'rods', 'gears'],
         substitutionPairs = [

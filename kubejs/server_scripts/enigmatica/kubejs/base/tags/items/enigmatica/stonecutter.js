@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     stonecuttables.forEach((stoneType) => {
         let tag = `enigmatica:stonecuttables/${stoneType.name}`;

@@ -1,5 +1,3 @@
-
-
 // onEvent('fluid.tags', (event) => {
 //     event
 //         .get('minecraft:water')

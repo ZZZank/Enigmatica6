@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     /**
      * @type {{input:Internal.IngredientJS_,output:Internal.ItemStackJS_,

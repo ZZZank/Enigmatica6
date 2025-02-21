@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = [
         'botania:manasteel_pick',

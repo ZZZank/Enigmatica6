@@ -1,5 +1,3 @@
-
-
 onEvent('player.inventory.changed', (event) => {
     const player = event.player;
     if (player.fake) {

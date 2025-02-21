@@ -1,5 +1,3 @@
-
-
 /*
 onEvent('player.tick', (event) => {
     const player = event.player;

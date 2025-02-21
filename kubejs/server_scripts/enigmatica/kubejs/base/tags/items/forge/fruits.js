@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('forge:fruits', [
         'ars_nouveau:mana_berry',

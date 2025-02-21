@@ -1,5 +1,3 @@
-
-
 const ieMultiblockGameStage = {
     'immersivepetroleum:multiblocks/pumpjack': 'medium_machinery_schematics',
     'immersiveengineering:multiblocks/excavator': 'medium_machinery_schematics',

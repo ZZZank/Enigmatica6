@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     const materials = ['aeternium', 'terminite', 'thallasium'];
     const types = ['shovel_head', 'hammer_head', 'hoe_head', 'pickaxe_head', 'axe_head', 'sword_blade'];

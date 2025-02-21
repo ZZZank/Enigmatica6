@@ -1,6 +1,5 @@
 // priority: 9
 
-
 onEvent('ponder.registry', (event) => {
     let itemsToPonder = [
         'industrialforegoing:latex_processing_unit',

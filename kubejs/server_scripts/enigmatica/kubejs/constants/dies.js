@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const sharedDies = [
     {
         thermalName: 'gear',

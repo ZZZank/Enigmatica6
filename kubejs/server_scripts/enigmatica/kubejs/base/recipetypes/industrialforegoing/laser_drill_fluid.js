@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     let nether_end_biomes = end_biomes.concat(nether_biomes);
 

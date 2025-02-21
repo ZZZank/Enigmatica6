@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     const recipes = [
         { toReplace: 'thermal:cinnabar', replaceWith: '#forge:gems/cinnabar' },

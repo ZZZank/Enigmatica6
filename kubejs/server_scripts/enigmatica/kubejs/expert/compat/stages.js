@@ -1,5 +1,3 @@
-
-
 onEvent('player.logged_in', (event) => {
     const modids = ['refinedstorage', 'extrastorage', 'rsinfinitybooster'];
 

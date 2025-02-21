@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = [/fishing_rod$/, 'atum:atems_bounty'];
 

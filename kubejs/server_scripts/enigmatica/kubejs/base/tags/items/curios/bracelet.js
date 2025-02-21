@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.remove('curios:bracelet', [
         'atum:relic_silver_bracelet',

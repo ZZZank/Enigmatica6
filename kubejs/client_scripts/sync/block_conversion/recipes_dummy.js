@@ -53,4 +53,4 @@ const blockConvDummyRecipes = [
         // see ghast_ender_air_crying loottable
         output: Item.of('minecraft:ghast_tear').chance(1 / 8)
     }
-]
+];

@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const fires = [
     'minecraft:fire', //
     'minecraft:soul_fire',

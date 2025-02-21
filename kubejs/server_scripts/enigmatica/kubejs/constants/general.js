@@ -1,6 +1,5 @@
 // priority: 1001
 
-
 const air = 'minecraft:air';
 
 // priority of which mod output should come from, if applicable

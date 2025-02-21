@@ -1,5 +1,3 @@
-
-
 /* 
 onEvent('item.tags', (event) => {
     const chiselNamespace = 'chisel';

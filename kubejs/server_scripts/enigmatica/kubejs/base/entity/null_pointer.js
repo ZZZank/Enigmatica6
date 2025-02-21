@@ -1,5 +1,3 @@
-
-
 onEvent('entity.attack', (event) => {
     const { source, entity } = event;
     const { player, immediate } = source;

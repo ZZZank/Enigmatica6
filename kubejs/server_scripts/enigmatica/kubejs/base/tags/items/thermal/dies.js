@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     sharedDies.forEach((die) => {
         event.add(`thermal:crafting/dies`, [`immersiveengineering:mold_${die.immersiveEngineeringName}`]);

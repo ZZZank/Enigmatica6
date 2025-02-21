@@ -1,4 +1,3 @@
-
 onEvent('server.datapack.high_priority', (event) => {
     let loot_table = {
         type: 'minecraft:entity',

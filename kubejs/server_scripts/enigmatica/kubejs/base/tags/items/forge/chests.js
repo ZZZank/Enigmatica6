@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.remove('forge:chests', [
         '#pneumaticcraft:chests',

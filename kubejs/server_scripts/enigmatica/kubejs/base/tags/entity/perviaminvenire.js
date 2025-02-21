@@ -1,5 +1,3 @@
-
-
 /*
 onEvent('entity_type.tags', (event) => {
     let entities = [

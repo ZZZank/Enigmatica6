@@ -1,4 +1,3 @@
-
 onEvent('generic.loot_tables', (event) => {
     const pools = [
         {

@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     /*
     Note, max starlight is theoretical. In practice, assume roughly 95% as the max reasonable level

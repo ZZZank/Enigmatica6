@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = [
         'minecraft:crafting_table',

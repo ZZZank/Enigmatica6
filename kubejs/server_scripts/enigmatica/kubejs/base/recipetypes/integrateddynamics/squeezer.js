@@ -1,5 +1,3 @@
-
-
 /*
 onEvent('recipes', function (event) {
     // Item Inputs

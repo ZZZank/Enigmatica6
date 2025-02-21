@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = ['byg:prickly_pear_cactus', 'byg:mini_cactus'];
     event.get('minecraft:flowers').add(items);

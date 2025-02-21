@@ -1,6 +1,5 @@
 // priority: 9
 
-
 onEvent('ponder.registry', (event) => {
     event
         .create('enigmatica:respawn_ender_dragon', [

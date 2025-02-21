@@ -1,8 +1,6 @@
-
-
 block_conversion: {
     const id_prefix = 'enlightened6:right_click_block/';
-    const AIR_RL = new ResourceLocation("air")
+    const AIR_RL = new ResourceLocation('air');
 
     onEvent('block.right_click', (event) => {
         const { player, item, hand } = event;
@@ -11,7 +9,7 @@ block_conversion: {
         }
 
         const target = event.block;
-        const recipes = blockConvCompiled[target.id]
+        const recipes = blockConvCompiled[target.id];
         if (!recipes) {
             return;
         }
@@ -34,9 +32,9 @@ block_conversion: {
             drop.setMotionY(0.2);
             drop.spawn();
 
-            let additionalAction = recipe.additional
+            let additionalAction = recipe.additional;
             if (additionalAction) {
-                additionalAction(event)
+                additionalAction(event);
             }
 
             event.cancel();
@@ -44,11 +42,11 @@ block_conversion: {
         }
     });
 
-    onEvent('recipes', event => {
-        const { deploying } = event.recipes.create
+    onEvent('recipes', (event) => {
+        const { deploying } = event.recipes.create;
 
-        blockConvRecipes.forEach(recipe => {
+        blockConvRecipes.forEach((recipe) => {
             deploying(recipe.output, [recipe.target, recipe.holding]).id(id_prefix + recipe.id + '/deploy');
-        })
-    })
+        });
+    });
 }

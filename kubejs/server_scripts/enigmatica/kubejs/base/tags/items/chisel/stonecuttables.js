@@ -1,5 +1,3 @@
-
-
 /* 
 onEvent('item.tags', (event) => {
     stonecuttables.forEach((stoneType) => {

@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     /// These Recipes don't reload properly in game. Do a full restart when modifying anything.
     const substrates = {

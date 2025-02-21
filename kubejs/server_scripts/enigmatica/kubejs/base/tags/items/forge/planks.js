@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.get('forge:planks/ancient').add('naturesaura:ancient_planks');
 

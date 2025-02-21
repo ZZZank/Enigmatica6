@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 // prettier-ignore
 const industrialforegoing = {
     laser_lens: {

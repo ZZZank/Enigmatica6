@@ -1,4 +1,3 @@
-
 onEvent('recipes', (event) => {
     return;
     const id_prefix = 'enigmatica:normal/masterful_machinery/industrial_deuterium_plant/';

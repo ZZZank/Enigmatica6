@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 const tier0Hives = [
     'resourcefulbees:bee_nest',
     'resourcefulbees:acacia_bee_nest',

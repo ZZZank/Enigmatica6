@@ -89,7 +89,7 @@ const blockConvRecipes = [
         holding: 'pneumaticcraft:stop_worm',
         id: 'null_pointer_alt'
     }
-]
+];
 
 /**
  * @type {{
@@ -99,18 +99,17 @@ const blockConvRecipes = [
  *  additional?:(e:$BlockRightClickEventJS_)=>void
  * }[]}}
  */
-const blockConvCompiled = {}
+const blockConvCompiled = {};
 
-blockConvRecipes.forEach(recipe => {
-    const { target, holding, output, additional } = recipe
+blockConvRecipes.forEach((recipe) => {
+    const { target, holding, output, additional } = recipe;
     if (!blockConvCompiled[target]) {
-        blockConvCompiled[target] = []
+        blockConvCompiled[target] = [];
     }
-    const targeted = blockConvCompiled[target]
+    const targeted = blockConvCompiled[target];
     targeted.push({
         holding: Ingredient.of(holding),
         output: Item.of(output),
         additional: additional
-    })
-})
-
+    });
+});

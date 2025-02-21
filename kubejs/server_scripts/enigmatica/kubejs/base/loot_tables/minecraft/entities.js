@@ -1,4 +1,3 @@
-
 onEvent('entity.loot_tables', (event) => {
     event.modifyEntity('minecraft:wolf', (table) => {
         table.addPool((pool) => {

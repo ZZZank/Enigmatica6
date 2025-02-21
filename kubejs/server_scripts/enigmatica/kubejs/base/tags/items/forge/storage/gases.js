@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     let items = ['mekanism:dynamic_tank', 'mekanism:dynamic_valve'];
 

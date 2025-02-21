@@ -1,6 +1,5 @@
 // priority: 9
 
-
 onEvent('ponder.registry', (event) => {
     event
         .create('enigmatica:nori_sheet_press', [

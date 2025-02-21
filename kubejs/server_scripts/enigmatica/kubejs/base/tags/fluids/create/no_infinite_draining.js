@@ -1,4 +1,3 @@
-
 onEvent('fluid.tags', (event) => {
     let draining_whitelist = [
         'create:chocolate',

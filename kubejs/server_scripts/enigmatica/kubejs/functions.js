@@ -1,6 +1,5 @@
 // priority: 1005
 
-
 /**
  *
  * @param {string} str : e.g. `an example sTRing`
@@ -136,8 +135,8 @@ function getPreferredItemInTag(tag) {
 
 /**
  * @template T
- * @param {T[]} list 
- * @param {(a: T, b: T) => number} comparator 
+ * @param {T[]} list
+ * @param {(a: T, b: T) => number} comparator
  * @returns {T}
  */
 function maxOf(list, comparator) {
@@ -154,11 +153,11 @@ function maxOf(list, comparator) {
 }
 
 /**
- * 
+ *
  * @template T
- * @param {T[]} arr 
- * @param {integer} pageSize 
- * @returns 
+ * @param {T[]} arr
+ * @param {integer} pageSize
+ * @returns
  */
 function toPagedArray(arr, pageSize) {
     if (pageSize <= 0) {

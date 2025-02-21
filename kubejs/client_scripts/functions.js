@@ -1,7 +1,6 @@
 // priority: 1005
 
-
-const air = "minecraft:air";
+const air = 'minecraft:air';
 
 /**
  * @param {string} str : e.g. `an example sTRing`
@@ -28,7 +27,7 @@ function randomOf(entries) {
  * @param {string?} color
  */
 const rawItemStr = (item, color) => {
-    item = Item.of(item)
+    item = Item.of(item);
     const count = item.count > 1 ? `${item.count}*` : '';
     let itemName;
     try {
@@ -83,8 +82,8 @@ const getPreferredItemInTag = (tag) => {
 
 /**
  * @template T
- * @param {T[]} list 
- * @param {((a: T, b: T) => number)} comparator 
+ * @param {T[]} list
+ * @param {((a: T, b: T) => number)} comparator
  * @returns {T}
  */
 function maxOf(list, comparator) {
@@ -183,9 +182,9 @@ const fallback_id = (recipe, id_prefix) => {
  *
  * `chance` will be displayed in `{name} {chance}%` format
  * @param {$ItemStackJS_} item
- * @param {number} chance 
+ * @param {number} chance
  */
 function withChanceInName(item, chance) {
-    const it = Item.of(item)
+    const it = Item.of(item);
     return it.withName(it.name.append(text.of(' ' + (chance * 100).toPrecision(3) + '%').gray()));
 }

@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     colors.forEach((color) => {
         event.get('atum:linen').add(`atum:linen_${color}`);

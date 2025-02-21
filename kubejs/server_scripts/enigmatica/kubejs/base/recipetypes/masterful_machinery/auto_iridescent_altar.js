@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/masterful_machinery/auto_iridescent_altar/';
     const recipes = [

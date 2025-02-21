@@ -1,5 +1,3 @@
-
-
 onEvent('jei.remove.recipes', (event) => {
     if (global.isNormalMode) {
         return;

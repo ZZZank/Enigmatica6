@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event.add('minecraft:leaves/coniferous', [
         'byg:brown_zelkova_leaves',

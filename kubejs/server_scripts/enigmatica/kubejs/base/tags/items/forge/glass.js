@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     colors.forEach((color) => {
         event.get(`forge:glass/${color}`).add([`quark:${color}_framed_glass`]);

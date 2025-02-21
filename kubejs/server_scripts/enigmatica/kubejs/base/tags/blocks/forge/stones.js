@@ -1,4 +1,3 @@
-
 onEvent('block.tags', (event) => {
     event
         .get('forge:stone')

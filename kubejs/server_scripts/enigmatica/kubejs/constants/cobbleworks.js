@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 // Items added here will get recipes for Pedestals & Cobblegen Randomizer cobblegens.
 const generatableCobblestone = [
     'byg:dacite_cobblestone',

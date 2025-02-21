@@ -1,6 +1,5 @@
 // priority: 1000
 
-
 // used to generate stonecutting recipes
 const stonecuttables = [
     {

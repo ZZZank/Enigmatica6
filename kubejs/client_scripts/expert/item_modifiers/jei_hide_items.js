@@ -1,5 +1,3 @@
-
-
 onEvent('jei.hide.items', (event) => {
     if (global.isNormalMode) {
         return;

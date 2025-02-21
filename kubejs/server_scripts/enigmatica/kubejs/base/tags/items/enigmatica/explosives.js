@@ -1,5 +1,3 @@
-
-
 onEvent('item.tags', (event) => {
     /**
      * Templates for tagging items, with automatic handling of "base tag".

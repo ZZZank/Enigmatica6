@@ -1,4 +1,3 @@
-
 onEvent('item.tags', (event) => {
     event
         .get('enigmatica:quests/storage/gold_to_diamond')

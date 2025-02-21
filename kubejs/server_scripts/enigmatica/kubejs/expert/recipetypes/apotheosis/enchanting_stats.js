@@ -1,4 +1,3 @@
-
 onEvent('server.datapack.high_priority', (event) => {
     if (global.isNormalMode) {
         return;

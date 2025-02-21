@@ -1,5 +1,3 @@
-
-
 {
     const bee_map = {};
     bees.forEach((bee) => {

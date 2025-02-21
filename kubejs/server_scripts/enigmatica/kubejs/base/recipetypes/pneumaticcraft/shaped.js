@@ -1,5 +1,3 @@
-
-
 onEvent('recipes', (event) => {
     const id_prefix = 'enigmatica:base/pneumaticcraft/shaped/';
     const recipes = [
