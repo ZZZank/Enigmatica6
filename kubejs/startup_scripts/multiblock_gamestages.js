@@ -21,10 +21,7 @@ const ieMultiblockGameStage = {
     'immersiveengineering:multiblocks/lightning_rod': 'heavy_machinery_schematics'
 };
 
-onEvent('ie.multiblock.form', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('ie.multiblock.form', (event) => {
 
     // @ts-ignore
     const /** @type {Internal.PlayerJS} */ player = event.entity;

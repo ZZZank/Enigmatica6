@@ -1,7 +1,4 @@
-onEvent('kube_jei.register_recipes', (event) => {
-    if (!global['isExpertMode']) {
-        return;
-    }
+onEventExpert('kube_jei.register_recipes', (event) => {
     const ID = new ResourceLocation('enlightened', 'recipe_hint');
 
     /**
