@@ -31,10 +31,7 @@ restrictions.block_place = [
     }
 ];
 
-onEvent('block.place', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('block.place', (event) => {
     const block = event.block;
     const entity = event.entity;
 

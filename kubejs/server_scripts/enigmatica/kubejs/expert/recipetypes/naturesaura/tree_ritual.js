@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     const time_multiplier = 10,
         id_prefix = 'enigmatica:expert/naturesaura/tree_ritual/';
 

@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     const recipes = [
         {
             inputs: [

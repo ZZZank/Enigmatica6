@@ -1,6 +1,3 @@
-onEvent('item.tags', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('item.tags', (event) => {
     event.get('pneumaticcraft:upgrade_components').remove('minecraft:lapis_lazuli');
 });

@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     const id_prefix = 'enigmatica:expert/ars_nouveau/enchanting_apparatus/';
     const recipes = [
         {

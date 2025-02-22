@@ -1,7 +1,4 @@
-onEvent('block.loot_tables', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('block.loot_tables', (event) => {
 
     const loot_tables = [
         {

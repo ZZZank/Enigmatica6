@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     const id_prefix = 'enigmatica:expert/enigmatica/';
     const recipes = [];
 

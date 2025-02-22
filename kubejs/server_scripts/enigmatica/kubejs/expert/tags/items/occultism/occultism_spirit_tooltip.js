@@ -1,7 +1,4 @@
-onEvent('item.tags', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('item.tags', (event) => {
     const items = [
         'bloodmagic:soulsword',
         'bloodmagic:soulaxe',

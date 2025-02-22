@@ -7,10 +7,7 @@ function cuttingRecipe(ingredient, tool, result) {
     };
 }
 
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
 
     const id_prefix = 'enigmatica:expert/farmersdelight/cutting/';
 

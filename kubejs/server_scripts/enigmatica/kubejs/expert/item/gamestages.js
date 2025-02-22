@@ -8,10 +8,7 @@
         'bloodmagic:soulgemlesser': 'lesser_tartaric_gem'
     };
 
-    onEvent('item.right_click', (event) => {
-        if (global.isNormalMode) {
-            return;
-        }
+    onEventExpert('item.right_click', (event) => {
 
         const player = event.player;
         if (!player || !player.player || player.fake || player.mainHandItem.empty) {

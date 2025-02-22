@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     /**
      * @type {{input:Internal.IngredientJS_,output:Internal.ItemStackJS_,
      * tier:'ONE'|'TWO'|'THREE',id:string}[]}

@@ -1,7 +1,4 @@
-onEvent('item.tags', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('item.tags', (event) => {
     // 'ritua_runes' not a typo
     event
         .get('mythicbotany:ritua_runes')

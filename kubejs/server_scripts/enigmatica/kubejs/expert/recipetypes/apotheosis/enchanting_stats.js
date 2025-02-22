@@ -1,7 +1,4 @@
-onEvent('server.datapack.high_priority', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('server.datapack.high_priority', (event) => {
     /*          
                 Negative values permitted
                 maxEterna: max 50,

@@ -1,7 +1,4 @@
-onEvent('entity.loot_tables', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('entity.loot_tables', (event) => {
 
     event.modifyEntity('minecraft:zombie', (table) => {
         table.addPool((pool) => {

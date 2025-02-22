@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('recipes', (event) => {
     const id_prefix = 'enigmatica:expert/industrialforegoing/laser_drill_fluids/';
     let nether_end_biomes = end_biomes.concat(nether_biomes);
 
