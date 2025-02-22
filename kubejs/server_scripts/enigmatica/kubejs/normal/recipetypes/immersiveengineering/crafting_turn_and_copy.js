@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isExpertMode) {
-        return;
-    }
+onEventNormal('recipes', (event) => {
     const recipes = [
         {
             group: 'ie_concrete',

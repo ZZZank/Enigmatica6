@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isExpertMode) {
-        return;
-    }
+onEventNormal('recipes', (event) => {
     event
         .custom({
             type: 'appliedenergistics2:inscriber',

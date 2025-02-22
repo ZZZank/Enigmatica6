@@ -1,7 +1,4 @@
-onEvent('recipes', (event) => {
-    if (global.isExpertMode) {
-        return;
-    }
+onEventNormal('recipes', (event) => {
 
     const id_prefix = 'enigmatica:normal/astralsorcery/block_transmutation/';
 
