@@ -1,7 +1,4 @@
-onEvent('kube_jei.deny.recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('kube_jei.deny.recipes', (event) => {
 
     /**
      * @type {{category: string, recipes_by_id: string[]}[]}
@@ -35,10 +32,7 @@ onEvent('kube_jei.deny.recipes', (event) => {
     });
 });
 
-onEvent('jei.remove.recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('jei.remove.recipes', (event) => {
 
     //console.log('JEI RECIPE CATEGORIES: ' + event.getCategoryIds());
     //console.log('Valid Keys: ' + Object.keys(event));

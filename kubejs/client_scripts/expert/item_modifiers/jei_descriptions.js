@@ -1,7 +1,4 @@
-onEvent('jei.information', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('jei.information', (event) => {
     const eprefix = 'descriptions.en6e.expert.';
     const id_prefix = `descriptions.enigmatica.expert.`;
 

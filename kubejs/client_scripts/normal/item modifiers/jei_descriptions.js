@@ -1,8 +1,5 @@
 
-onEvent('jei.information', (event) => {
-    if (global.isExpertMode) {
-        return;
-    }
+onEventNormal('jei.information', (event) => {
     const id_prefix = 'descriptions.enigmatica.normal.';
     const recipes = [
         {

@@ -1,7 +1,4 @@
-onEvent('jei.remove.recipes', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('jei.remove.recipes', (event) => {
 
     //console.log('JEI RECIPE CATEGORIES: ' + event.getCategoryIds());
     //console.log('Valid Keys: ' + Object.keys(event));

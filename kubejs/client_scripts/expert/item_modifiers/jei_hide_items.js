@@ -1,7 +1,4 @@
-onEvent('jei.hide.items', (event) => {
-    if (global.isNormalMode) {
-        return;
-    }
+onEventExpert('jei.hide.items', (event) => {
 
     const items = [];
     items.push(disabledItemsExpert);
