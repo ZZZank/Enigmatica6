@@ -221,15 +221,15 @@ const itemsToHide = [
     /iridium/,
     /cast_iron/,
     /peridot/,
-    /emendatusenigmatica.*sapphire/,
-    /emendatusenigmatica.*ruby/,
+    /^emendatusenigmatica.*sapphire/,
+    /^emendatusenigmatica.*ruby/,
 
     'environmental:cherry_pie',
     'environmental:apple_pie',
 
     'farmersdelight:fried_egg',
 
-    /ftblibrary:fluid_container/,
+    /^ftblibrary:fluid_container$/,
 
     'immersiveengineering:dust_coke',
     'immersiveengineering:dust_saltpeter',
@@ -268,7 +268,7 @@ const itemsToHide = [
 
     'mekanism:fluorite_gem',
 
-    /materialis:wrench/,
+    /^materialis:wrench$/,
 
     'neapolitan:milk_bottle',
 
@@ -299,18 +299,18 @@ const itemsToHide = [
     'tconstruct:copper_ingot',
     'tconstruct:cobalt_ingot',
 
-    /tconstruct:pickaxe/,
-    /tconstruct:sledge_hammer/,
-    /tconstruct:vein_hammer/,
-    /tconstruct:mattock/,
-    /tconstruct:excavator/,
-    /tconstruct:hand_axe/,
-    /tconstruct:broad_axe/,
-    /tconstruct:kama/,
-    /tconstruct:scythe/,
-    /tconstruct:dagger/,
-    /tconstruct:sword/,
-    /tconstruct:cleaver/,
+    /^tconstruct:pickaxe$/,
+    /^tconstruct:sledge_hammer$/,
+    /^tconstruct:vein_hammer$/,
+    /^tconstruct:mattock$/,
+    /^tconstruct:excavator$/,
+    /^tconstruct:hand_axe$/,
+    /^tconstruct:broad_axe$/,
+    /^tconstruct:kama$/,
+    /^tconstruct:scythe$/,
+    /^tconstruct:dagger$/,
+    /^tconstruct:sword$/,
+    /^tconstruct:cleaver$/,
 
     'thermal:coal_coke',
     'thermal:coal_coke_block',
