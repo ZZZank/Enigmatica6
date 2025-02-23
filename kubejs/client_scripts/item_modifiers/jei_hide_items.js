@@ -24,8 +24,6 @@ onEvent('jei.hide.items', (event) => {
         });
 
     itemsToHide.forEach((disabledItem) => {
-        if (!Item.of(disabledItem).empty) {
-            event.hide(disabledItem);
-        }
+        event.hide(disabledItem);
     });
 });
