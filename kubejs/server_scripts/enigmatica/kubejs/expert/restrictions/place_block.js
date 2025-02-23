@@ -35,19 +35,6 @@ onEventExpert('block.place', (event) => {
     const block = event.block;
     const entity = event.entity;
 
-    const isValid = (restriction) => {
-        if (restriction.stageUnlock && entity.stages.has(restriction.stageUnlock)) {
-            return true;
-        }
-        if (restriction.dimension && restriction.dimension != block.dimension) {
-            return false;
-        }
-        if (restriction.additional && !restriction.additional(event)) {
-            return false;
-        }
-        return true;
-    };
-
     for (let restriction of restrictions.block_place) {
         if (restriction.blocks.indexOf(block.id) == -1) {
             continue;
@@ -57,7 +44,15 @@ onEventExpert('block.place', (event) => {
             event.cancel();
             return;
         }
-        if (!isValid(restriction)) {
+        let valid = true;
+        if (restriction.stageUnlock && entity.stages.has(restriction.stageUnlock)) {
+            valid = true;
+        } else if (restriction.dimension && restriction.dimension != block.dimension) {
+            valid = false;
+        } else if (restriction.additional && !restriction.additional(event)) {
+            valid = false;
+        }
+        if (!valid) {
             entity.tell(Text.translate(restriction.errorMessage).red());
             event.cancel();
             return;
