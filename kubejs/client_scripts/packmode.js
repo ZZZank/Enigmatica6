@@ -9,3 +9,7 @@ onEvent('player.data_from_server.reload', (event) => {
 onEvent('client.logged_in', (event) => {
     global.onReload();
 });
+
+const {
+    packmode, isExpertMode, isNormalMode
+} = global
