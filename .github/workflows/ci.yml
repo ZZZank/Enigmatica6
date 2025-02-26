@@ -148,9 +148,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - run: git clone --branch 1605 https://github.com/ZZZank/KubeJS.git
-      - run: git apply ../.github/actions/ci/patches/kubejs.patch
-        working-directory: KubeJS
+      - run: git clone --branch enigmatica https://github.com/ZZZank/KubeJS.git
 
       - uses: actions/cache@v4
         id: cache
