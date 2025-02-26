@@ -257,18 +257,6 @@ const itemsToHide = [
     'masterfulmachinery:industrial_deuterium_plant_pressure_port_pncr_pressure_output',
     'masterfulmachinery:wicked_altar_fluid_port_fluids_output',
 
-    'mctb:cherry_crafting_table',
-    'mctb:dead_crafting_table',
-    'mctb:fir_crafting_table',
-    'mctb:hellbark_crafting_table',
-    'mctb:jacaranda_crafting_table',
-    'mctb:mahogany_crafting_table',
-    'mctb:palm_crafting_table',
-    'mctb:redwood_crafting_table',
-    'mctb:umbran_crafting_table',
-    'mctb:willow_crafting_table',
-    'mctb:magic_crafting_table',
-
     'mekanism:fluorite_gem',
 
     /^materialis:wrench$/,
