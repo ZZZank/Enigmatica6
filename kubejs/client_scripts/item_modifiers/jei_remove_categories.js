@@ -12,8 +12,7 @@
         'masterfulmachinery:machine_structure_wicked_altar',
         'masterfulmachinery:machine_structure_industrial_deuterium_plant',
         'masterfulmachinery:machine_structure_gaia_reactor',
-        'masterfulmachinery:machine_structure_stellar_neutron_activator',
-        'occultism:miner'
+        'masterfulmachinery:machine_structure_stellar_neutron_activator'
     ];
 
     onEvent('kube_jei.deny.categories', (event) => {
