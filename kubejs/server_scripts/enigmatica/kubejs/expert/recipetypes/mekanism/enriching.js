@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/mekanism/enriching/';
     const recipes = [
         {

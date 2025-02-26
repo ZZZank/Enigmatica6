@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const id_prefix = 'enigmatica:normal/astralsorcery/block_transmutation/';
 
     let data = {

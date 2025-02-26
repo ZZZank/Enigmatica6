@@ -46,10 +46,9 @@ onEvent('recipes', (event) => {
 
         recipes.forEach((recipe) => {
             const builder = cutting(
-                    [Item.of(recipe.output, recipe.count), Item.of(recipe.secondaryOutput, 1)],
-                    recipe.input
-                )
-                .processingTime(recipe.time);
+                [Item.of(recipe.output, recipe.count), Item.of(recipe.secondaryOutput, 1)],
+                recipe.input
+            ).processingTime(recipe.time);
             fallback_id(builder, `enigmatica:base/unification/unify_sawables/create_cutting/`);
         });
     }

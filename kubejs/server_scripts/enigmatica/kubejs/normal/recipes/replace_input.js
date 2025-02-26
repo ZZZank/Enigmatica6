@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const recipes = [
         {
             filter: { id: 'botania:laputa_shard' },

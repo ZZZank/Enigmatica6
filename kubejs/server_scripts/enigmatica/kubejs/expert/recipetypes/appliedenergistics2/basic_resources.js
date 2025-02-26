@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/appliedenergistics2/basic_res/';
 
     const recipes = [

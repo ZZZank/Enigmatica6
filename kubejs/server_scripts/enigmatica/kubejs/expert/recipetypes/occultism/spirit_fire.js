@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     // not in the enigmatica namespace for some legacy reason?
     const id_prefix = `occultism:spirit_fire/`;
 

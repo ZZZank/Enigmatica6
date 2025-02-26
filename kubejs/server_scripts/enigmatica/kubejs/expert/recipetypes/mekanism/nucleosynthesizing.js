@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/mekanism/nucleosynthesizing/';
     /* 
         Recipes use about 40k rf per point of duration. 

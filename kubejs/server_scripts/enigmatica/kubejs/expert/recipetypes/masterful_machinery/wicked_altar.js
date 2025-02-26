@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/masterful_machinery/wicked_altar/';
     /**
      * if type is not specified, it will be 'masterfulmachinery:items'

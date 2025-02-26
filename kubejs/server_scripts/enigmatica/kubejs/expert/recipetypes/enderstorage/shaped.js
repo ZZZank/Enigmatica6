@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             output: 'enderstorage:ender_pouch',

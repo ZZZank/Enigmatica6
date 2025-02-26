@@ -391,8 +391,8 @@ itemsToHide.push(
             'soul_soil',
             'basalt'
         ];
-        
-        return RegExp(`^emendatusenigmatica:\w+_(?:${oreTypes.join('|')})_ore`)
+
+        return RegExp(`^emendatusenigmatica:\w+_(?:${oreTypes.join('|')})_ore`);
     })()
 );
 

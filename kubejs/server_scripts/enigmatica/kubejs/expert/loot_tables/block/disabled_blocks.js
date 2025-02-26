@@ -1,5 +1,4 @@
 onEventExpert('block.loot_tables', (event) => {
-
     const loot_tables = [
         {
             target: ['pneumaticcraft:air_compressor', 'pneumaticcraft:advanced_air_compressor'],

@@ -22,7 +22,6 @@ const ieMultiblockGameStage = {
 };
 
 onEventExpert('ie.multiblock.form', (event) => {
-
     // @ts-ignore
     const /** @type {Internal.PlayerJS} */ player = event.entity;
     const stage = ieMultiblockGameStage[event.getMultiblock()];

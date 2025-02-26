@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             replaceTarget: { id: 'thermal:fluid_cell' },

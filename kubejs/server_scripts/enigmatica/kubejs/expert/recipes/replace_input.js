@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             filter: { id: 'create:crafting/kinetics/mechanical_piston' },

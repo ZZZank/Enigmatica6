@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             output: Item.of('betterendforge:leather_wrapped_stick'),

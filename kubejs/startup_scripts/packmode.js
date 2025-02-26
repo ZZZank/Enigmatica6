@@ -18,7 +18,7 @@ const EnigPackMode = (() => {
         console.log(`Created new ${configName}`);
         config = defaultConfig;
     }
-    
+
     if (validPackMode.indexOf(config.mode) == -1) {
         JsonIO.write(configName, defaultConfig);
         config.mode = defaultConfig.mode;
@@ -26,15 +26,15 @@ const EnigPackMode = (() => {
             `Overwrote ${configName}, because the mode ${config.mode} was found. Valid modes are [${validPackMode}].`
         );
     }
-    
+
     console.log(`Current packmode is: ${global.packmode}`);
 
     return {
         validModes: validPackMode,
         defaultConfig: defaultConfig,
         config: config
-    }
-})()
+    };
+})();
 
 const packMode = EnigPackMode.config.mode;
 const isNormalMode = packMode == 'normal';

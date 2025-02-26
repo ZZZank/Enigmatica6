@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:base/naturesaura/animal_spawner/';
     const recipes = [
         {

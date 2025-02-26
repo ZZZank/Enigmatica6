@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/pneumaticcraft/heat_frame_cooling/';
 
     let data = {

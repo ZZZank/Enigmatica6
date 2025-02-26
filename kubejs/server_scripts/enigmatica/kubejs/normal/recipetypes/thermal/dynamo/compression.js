@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const id_prefix = 'enigmatica:normal/thermal/compression_fuel/';
 
     let multiplier = 10;

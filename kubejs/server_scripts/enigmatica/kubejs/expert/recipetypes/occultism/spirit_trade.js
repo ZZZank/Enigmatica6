@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             inputs: [{ item: 'ars_nouveau:arcane_stone' }],

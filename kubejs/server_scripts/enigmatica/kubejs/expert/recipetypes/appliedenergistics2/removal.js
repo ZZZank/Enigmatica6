@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     //Disable an item completely.
     itemsToRemoveAE.forEach((entry) => {
         event.remove({ output: entry });

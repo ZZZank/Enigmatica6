@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const recipes = [
         {
             inputs: [{ item: 'minecraft:stone' }],

@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/masterful_machinery/industrial_deuterium_plant/';
     const recipes = [
         // {

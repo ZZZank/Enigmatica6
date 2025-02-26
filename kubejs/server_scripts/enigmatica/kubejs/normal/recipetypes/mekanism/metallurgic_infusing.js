@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const id_prefix = 'enigmatica:normal/mekanism/metallurgic_infusing/';
 
     let data = {

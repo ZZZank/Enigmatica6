@@ -10,6 +10,4 @@ onEvent('client.logged_in', (event) => {
     global.onReload();
 });
 
-const {
-    packmode, isExpertMode, isNormalMode
-} = global
+const { packmode, isExpertMode, isNormalMode } = global;

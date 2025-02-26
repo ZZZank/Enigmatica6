@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     const recipes = [
         {
             output: 'resourcefulbees:t2_apiary',

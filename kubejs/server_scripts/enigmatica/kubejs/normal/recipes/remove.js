@@ -1,5 +1,4 @@
 onEventNormal('recipes', (event) => {
-
     let outputRemovals = [
         'torchmaster:feral_flare_lantern',
         'torchmaster:megatorch',

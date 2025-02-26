@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const recipes = [
         {
             input: 'ars_nouveau:green_archwood_wood',

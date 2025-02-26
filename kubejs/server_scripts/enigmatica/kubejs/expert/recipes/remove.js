@@ -1,5 +1,4 @@
 onEventExpert('recipes', (event) => {
-
     const idRemovals = [
         'architects_palette:sunstone',
 

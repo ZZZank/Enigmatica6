@@ -8,7 +8,6 @@ function cuttingRecipe(ingredient, tool, result) {
 }
 
 onEventExpert('recipes', (event) => {
-
     const id_prefix = 'enigmatica:expert/farmersdelight/cutting/';
 
     const recipes = [

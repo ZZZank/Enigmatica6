@@ -1,5 +1,4 @@
 onEventExpert('entity.loot_tables', (event) => {
-
     event.modifyEntity('minecraft:zombie', (table) => {
         table.addPool((pool) => {
             pool.addItem('kubejs:zombie_heart').killedByPlayer().randomChanceWithLooting(0.1, 0.05);
