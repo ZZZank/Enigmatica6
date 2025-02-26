@@ -91,16 +91,10 @@ onEvent('recipes', (event) => {
 
         material_packing_unpacking(material, block, ingot, gem, nugget);
 
-        const mana_cluster = getPreferredItemInTag(Ingredient.of(`#enigmatica:mana_clusters/${material}`)).id;
-        const fulminated_cluster = getPreferredItemInTag(
-            Ingredient.of(`#enigmatica:fulminated_clusters/${material}`)
-        ).id;
-        const levigated_material = getPreferredItemInTag(
-            Ingredient.of(`#enigmatica:levigated_materials/${material}`)
-        ).id;
-        const crystalline_sliver = getPreferredItemInTag(
-            Ingredient.of(`#enigmatica:crystalline_slivers/${material}`)
-        ).id;
+        const mana_cluster = getPreferredItemInTag(`#enigmatica:mana_clusters/${material}`).id;
+        const fulminated_cluster = getPreferredItemInTag(`#enigmatica:fulminated_clusters/${material}`).id;
+        const levigated_material = getPreferredItemInTag(`#enigmatica:levigated_materials/${material}`).id;
+        const crystalline_sliver = getPreferredItemInTag(`#enigmatica:crystalline_slivers/${material}`).id;
 
         magical_ore_processing(
             event,

@@ -33,6 +33,7 @@ restrictions.block_place = [
 
 onEventExpert('block.place', (event) => {
     const block = event.block;
+    /** @type {Internal.PlayerJS<any>} */
     const entity = event.entity;
 
     for (let restriction of restrictions.block_place) {
