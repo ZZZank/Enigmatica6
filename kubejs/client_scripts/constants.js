@@ -285,10 +285,8 @@ const itemsToHide = [
     'supplementaries:sack',
     'supplementaries:blackboard',
 
-    'tconstruct:copper_ore',
-    'tconstruct:cobalt_ore',
-    'tconstruct:copper_ingot',
-    'tconstruct:cobalt_ingot',
+    /^tconstruct:copper_(?:ore|block|nugget)$/,
+    /^tconstruct:cobalt_(?:ore|block|nugget)$/,
 
     /^tconstruct:(?:pickaxe|sledge_hammer|vein_hammer|mattock|excavator|hand_axe|broad_axe|kama|scythe|dagger|sword|cleaver)$/,
 
@@ -311,10 +309,8 @@ const itemsToHide = [
     'quark:magnet',
     'quark:soul_compass',
 
-    /^emendatusenigmatica:certus/,
-    /^emendatusenigmatica:fluix/,
-    /^tconstruct:copper_(ore|block|nugget)/,
-    /^tconstruct:cobalt_(ore|block|nugget)/,
+    /^emendatusenigmatica:\w*certus/,
+    /^emendatusenigmatica:\w*fluix/,
     /^titanium:\w+_gear/,
     /^thermal:\w+_dust/,
     /^thermal:\w+_gear$/,
@@ -333,8 +329,6 @@ const itemsToHide = [
     /^immersiveposts:stick_/,
     /^byg:pendorite/,
     /^byg:ametrine/,
-    /^emendatusenigmatica:\w+certus/,
-    /^emendatusenigmatica:\w+fluix/,
     /^powah:\w+_starter/,
     /^rftoolsbase:dimensionalshard_/,
     /^theoneprobe:/,
