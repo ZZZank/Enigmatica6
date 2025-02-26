@@ -100,9 +100,9 @@ function Update-BetterCompatibilityCheckerVersion {
 
     $configPath = "$INSTANCE_ROOT/config/bcc-common.toml"
 
-    $modpackName = "Enigmatica 9"
+    $modpackName = "Enlightened 6"
     if ($mode -eq "expert") {
-        $modpackName = "Enigmatica 9 Expert"
+        $modpackName = "Enlightened 6 Expert"
     }
 
     # Replace anything that matches semver of the type 1.0.0 with $MODPACK_VERSION
