@@ -14,7 +14,7 @@ onEventExpert('kube_jei.register_recipes', (event) => {
         {
             inItems: ['kubejs:heavy_machinery_schematics'],
             catalyst: 'kubejs:heavy_machinery_schematics',
-            outItems: [
+            outItems: spreadArraySizeEnsured([
                 'immersiveengineering:assembler',
                 'immersiveengineering:arc_furnace',
                 'immersivepetroleum:cokerunit',
@@ -22,33 +22,25 @@ onEventExpert('kube_jei.register_recipes', (event) => {
                 'immersivepetroleum:distillationtower',
                 'immersiveengineering:lightning_rod',
                 'immersivepetroleum:hydrotreater'
-            ]
+            ], 6, "minecraft:barrier")
         },
         {
             inItems: ['kubejs:medium_machinery_schematics'],
             catalyst: 'kubejs:medium_machinery_schematics',
-            outItems: [
+            outItems: spreadArraySizeEnsured([
                 'immersiveengineering:squeezer',
                 'immersiveengineering:refinery',
                 'immersivepetroleum:pumpjack',
                 'immersiveengineering:mixer',
                 'immersiveengineering:metal_press',
                 'immersiveengineering:fermenter',
-
                 'immersiveengineering:excavator',
                 'immersiveengineering:diesel_generator',
                 'immersiveengineering:auto_workbench',
                 'immersiveengineering:sawmill'
-            ]
+            ], 6, "minecraft:barrier")
         }
     ];
-
-    const spreadKeys = ['outItems'];
-    recipes.forEach((recipe) => {
-        spreadKeys.forEach((key) => {
-            recipe[key] = spreadArraySizeEnsured(recipe[key], 6, Item.getEmpty());
-        });
-    });
 
     const builder = event.custom(ID);
     recipes.forEach((recipe) => builder.add(recipe));
