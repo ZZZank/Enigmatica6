@@ -127,6 +127,9 @@ const colors = [
     'light_gray'
 ];
 
+/**
+ * @type {$IngredientJS_[]}
+ */
 const itemsToHide = [
     'appliedenergistics2:nether_quartz_dust',
     'appliedenergistics2:fluix_dust',
@@ -299,18 +302,7 @@ const itemsToHide = [
     'tconstruct:copper_ingot',
     'tconstruct:cobalt_ingot',
 
-    /^tconstruct:pickaxe$/,
-    /^tconstruct:sledge_hammer$/,
-    /^tconstruct:vein_hammer$/,
-    /^tconstruct:mattock$/,
-    /^tconstruct:excavator$/,
-    /^tconstruct:hand_axe$/,
-    /^tconstruct:broad_axe$/,
-    /^tconstruct:kama$/,
-    /^tconstruct:scythe$/,
-    /^tconstruct:dagger$/,
-    /^tconstruct:sword$/,
-    /^tconstruct:cleaver$/,
+    /^tconstruct:(?:pickaxe|sledge_hammer|vein_hammer|mattock|excavator|hand_axe|broad_axe|kama|scythe|dagger|sword|cleaver)$/,
 
     'thermal:coal_coke',
     'thermal:coal_coke_block',
@@ -331,33 +323,6 @@ const itemsToHide = [
     'quark:magnet',
     'quark:soul_compass',
 
-    /^emendatusenigmatica:\w+_andesite_ore/,
-    /^emendatusenigmatica:\w+_gabbro_ore/,
-    /^emendatusenigmatica:\w+_c_limestone_ore/,
-    /^emendatusenigmatica:\w+_scoria_ore/,
-    /^emendatusenigmatica:\w+_weathered_limestone_ore/,
-    /^emendatusenigmatica:\w+_jasper_ore/,
-    /^emendatusenigmatica:\w+_marble_ore/,
-    /^emendatusenigmatica:\w+_slate_ore/,
-    /^emendatusenigmatica:\w+_netherrack_ore/,
-    /^emendatusenigmatica:\w+_blackstone_ore/,
-    /^emendatusenigmatica:\w+_deepslate_ore/,
-    /^emendatusenigmatica:\w+_end_stone_ore/,
-    /^emendatusenigmatica:\w+_mossy_stone_ore/,
-    /^emendatusenigmatica:\w+_granite_ore/,
-    /^emendatusenigmatica:\w+_diorite_ore/,
-    /^emendatusenigmatica:\w+_sand_ore/,
-    /^emendatusenigmatica:\w+_gravel_ore/,
-    /^emendatusenigmatica:\w+_violecite_ore/,
-    /^emendatusenigmatica:\w+_sulphuric_rock_ore/,
-    /^emendatusenigmatica:\w+_flavolite_ore/,
-    /^emendatusenigmatica:\w+_cryptic_stone_ore/,
-    /^emendatusenigmatica:\w+_ether_stone_ore/,
-    /^emendatusenigmatica:\w+_nylium_soul_soil_ore/,
-    /^emendatusenigmatica:\w+_subzero_ash_ore/,
-    /^emendatusenigmatica:\w+_brimstone_ore/,
-    /^emendatusenigmatica:\w+_soul_soil_ore/,
-    /^emendatusenigmatica:\w+_basalt_ore/,
     /^emendatusenigmatica:certus/,
     /^emendatusenigmatica:fluix/,
     /^tconstruct:copper_(ore|block|nugget)/,
@@ -388,30 +353,66 @@ const itemsToHide = [
     /^upgrade_aquatic:\w+_jelly_torch/
 ];
 
-let ee_types = ['clump', 'crystal', 'dirty_dust', 'shard', 'fragment', 'gravel'];
-ee_types.forEach((type) => {
-    itemsToHide.push(
-        `emendatusenigmatica:dimensional_${type}`,
-        `emendatusenigmatica:arcane_${type}`,
-        `emendatusenigmatica:potassium_nitrate_${type}`,
-        `emendatusenigmatica:sulfur_${type}`,
-        `emendatusenigmatica:apatite_${type}`,
-        `emendatusenigmatica:cinnabar_${type}`,
-        `emendatusenigmatica:bitumen_${type}`,
-        `emendatusenigmatica:fluorite_${type}`,
-        `emendatusenigmatica:certus_quartz_${type}`,
-        `emendatusenigmatica:quartz_${type}`,
-        `emendatusenigmatica:redstone_${type}`,
-        `emendatusenigmatica:lapis_${type}`,
-        `emendatusenigmatica:emerald_${type}`,
-        `emendatusenigmatica:diamond_${type}`,
-        `emendatusenigmatica:coal_${type}`,
-        `emendatusenigmatica:sapphire_${type}`,
-        `emendatusenigmatica:ruby_${type}`,
-        `emendatusenigmatica:iridium_${type}`,
-        `emendatusenigmatica:peridot_${type}`
-    );
-});
+itemsToHide.push(
+    (() => {
+        const types = ['clump', 'crystal', 'dirty_dust', 'shard', 'fragment', 'gravel'];
+        const materials = [
+            'dimensional',
+            'arcane',
+            'potassium_nitrate',
+            'sulfur',
+            'apatite',
+            'cinnabar',
+            'bitumen',
+            'fluorite',
+            'certus_quartz',
+            'quartz',
+            'redstone',
+            'lapis',
+            'emerald',
+            'diamond',
+            'coal',
+            'sapphire',
+            'ruby',
+            'iridium',
+            'peridot'
+        ];
+        return RegExp(`^emendatusenigmatica:(?:${materials.join('|')})_(?:${types.join('|')})$`);
+    })(),
+    (() => {
+        const oreTypes = [
+            'andesite',
+            'gabbro',
+            'c_limestone',
+            'scoria',
+            'weathered_limestone',
+            'jasper',
+            'marble',
+            'slate',
+            'netherrack',
+            'blackstone',
+            'deepslate',
+            'end_stone',
+            'mossy_stone',
+            'granite',
+            'diorite',
+            'sand',
+            'gravel',
+            'violecite',
+            'sulphuric_rock',
+            'flavolite',
+            'cryptic_stone',
+            'ether_stone',
+            'nylium_soul_soil',
+            'subzero_ash',
+            'brimstone',
+            'soul_soil',
+            'basalt'
+        ];
+        
+        return RegExp(`^emendatusenigmatica:\w+_(?:${oreTypes.join('|')})_ore`)
+    })()
+);
 
 /*  This allows hiding individual recipes. It's used primarily for recipes displayed in Patchouli manuals 
     that have been changed to use a different crafting type or that have been disabled. It allows creating a
