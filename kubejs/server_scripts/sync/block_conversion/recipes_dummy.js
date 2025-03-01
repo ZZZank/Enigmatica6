@@ -12,7 +12,7 @@ const blockConvDummyRecipes = [
     {
         target: 'minecraft:crafting_table',
         holding: Item.of('tetra:modular_double', {
-            'Damage': 0,
+            Damage: 0,
             'double/handle': 'double/basic_handle',
             'double/head_left': 'double/basic_hammer_left',
             'double/head_right': 'double/basic_hammer_right',

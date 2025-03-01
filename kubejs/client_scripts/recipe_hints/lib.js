@@ -89,9 +89,9 @@ function spreadArray(arr, spreadLength) {
     // Code above not usable, F you Rhino
     const toSpread = Array(spreadLength);
     for (let i = 0; i < spreadLength; i++) {
-        toSpread[i] = []
+        toSpread[i] = [];
     }
-    arr.forEach((value, i) => (toSpread[i % spreadLength].push(value)));
+    arr.forEach((value, i) => toSpread[i % spreadLength].push(value));
     return toSpread;
 }
 
@@ -104,8 +104,8 @@ function spreadArray(arr, spreadLength) {
 function spreadArraySizeEnsured(arr, size, fillValue) {
     const split = spreadArray(arr, size);
     if (split.length == 0) {
-        return split
+        return split;
     }
-    const sizeToEnsure = split[0].length
+    const sizeToEnsure = split[0].length;
     return ensureSubArraySize(split, sizeToEnsure, fillValue);
 }

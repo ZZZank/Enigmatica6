@@ -14,31 +14,39 @@ onEventExpert('kube_jei.register_recipes', (event) => {
         {
             inItems: ['kubejs:heavy_machinery_schematics'],
             catalyst: 'kubejs:heavy_machinery_schematics',
-            outItems: spreadArraySizeEnsured([
-                'immersiveengineering:assembler',
-                'immersiveengineering:arc_furnace',
-                'immersivepetroleum:cokerunit',
-                'immersiveengineering:crusher',
-                'immersivepetroleum:distillationtower',
-                'immersiveengineering:lightning_rod',
-                'immersivepetroleum:hydrotreater'
-            ], 6, "minecraft:barrier")
+            outItems: spreadArraySizeEnsured(
+                [
+                    'immersiveengineering:assembler',
+                    'immersiveengineering:arc_furnace',
+                    'immersivepetroleum:cokerunit',
+                    'immersiveengineering:crusher',
+                    'immersivepetroleum:distillationtower',
+                    'immersiveengineering:lightning_rod',
+                    'immersivepetroleum:hydrotreater'
+                ],
+                6,
+                'minecraft:barrier'
+            )
         },
         {
             inItems: ['kubejs:medium_machinery_schematics'],
             catalyst: 'kubejs:medium_machinery_schematics',
-            outItems: spreadArraySizeEnsured([
-                'immersiveengineering:squeezer',
-                'immersiveengineering:refinery',
-                'immersivepetroleum:pumpjack',
-                'immersiveengineering:mixer',
-                'immersiveengineering:metal_press',
-                'immersiveengineering:fermenter',
-                'immersiveengineering:excavator',
-                'immersiveengineering:diesel_generator',
-                'immersiveengineering:auto_workbench',
-                'immersiveengineering:sawmill'
-            ], 6, "minecraft:barrier")
+            outItems: spreadArraySizeEnsured(
+                [
+                    'immersiveengineering:squeezer',
+                    'immersiveengineering:refinery',
+                    'immersivepetroleum:pumpjack',
+                    'immersiveengineering:mixer',
+                    'immersiveengineering:metal_press',
+                    'immersiveengineering:fermenter',
+                    'immersiveengineering:excavator',
+                    'immersiveengineering:diesel_generator',
+                    'immersiveengineering:auto_workbench',
+                    'immersiveengineering:sawmill'
+                ],
+                6,
+                'minecraft:barrier'
+            )
         }
     ];
 
