@@ -1,4 +1,15 @@
 {
+    "item.en6e.null_pointer": "空指针",
+    "lore.en6e.null_pointer": "向生命值不高于20的怪物抛出，然后等待时空乱流吞噬它们",
+
+    "descriptions.en6e.base.disabled_please_report": "此物品已被禁用，如果你仍然获得了这个物品，请报告到 Enlightened 6 的问题跟踪处: https://github.com/ZZZank/Enlightened6/issues",
+    "descriptions.en6e.base.koi": "不会自然掉落，参见 Dead Koi Bucket",
+    "descriptions.en6e.base.mint_milkshake": "可以“抢劫”附近一个怪物拥有的药水效果",
+    "descriptions.en6e.base.": "",
+
+    "tooltips.en6e.expert.channel_disabled": "频道在专家模式下已被禁用",
+    "tooltips.en6e.expert.": "",
+
     "chat.hand_over_your_items.send":"你已经将 %s 交给 %s",
     "chat.hand_over_your_items.receive":"你获得了 %s , 来自 %s"
 }
