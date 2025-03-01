@@ -12,7 +12,7 @@ const blockConvDummyRecipes = [
     {
         target: 'minecraft:crafting_table',
         holding: Item.of('tetra:modular_double', {
-            Damage: 0,
+            'Damage': 0,
             'double/handle': 'double/basic_handle',
             'double/head_left': 'double/basic_hammer_left',
             'double/head_right': 'double/basic_hammer_right',
@@ -49,8 +49,9 @@ const blockConvDummyRecipes = [
     },
     {
         target: 'minecraft:ghast_spawn_egg',
-        holding: Item.of('botania:ender_air_bottle').withName('toward its eyes'),
+        // holding: Item.of('botania:ender_air_bottle').withName('toward its eyes'),
+        holding: 'botania:ender_air_bottle',
         // see ghast_ender_air_crying loottable
-        output: Item.of('minecraft:ghast_tear').chance(1 / 8)
+        output: withChanceInName('minecraft:ghast_tear', 1 / 8)
     }
 ];
