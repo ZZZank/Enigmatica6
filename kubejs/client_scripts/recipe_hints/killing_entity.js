@@ -11,9 +11,7 @@ const { killing_entity_recipes, killing_entity_id } = (() => {
     const recipes = [
         {
             target: [
-                Item.of('ars_nouveau:glyph_filter_monster').withName(
-                    'Any monsters with no more than 20 healths(10 hearts)'
-                )
+                'ars_nouveau:glyph_filter_monster'
             ],
             weapon: Item.of('minecraft:trident', {
                 nullptrType: 1,
@@ -98,11 +96,6 @@ const { killing_entity_recipes, killing_entity_id } = (() => {
             target: ['meetyourfight:devils_ante'],
             output: ['meetyourfight:fortunes_favor'],
             id: id_prefix + 'fortunes_favor'
-        },
-        {
-            target: ['environmental:koi_bucket'],
-            output: ['bloodmagic:slate_ampoule', 'aquaculture:fish_bones'],
-            id: id_prefix + 'koi'
         }
     ];
 
