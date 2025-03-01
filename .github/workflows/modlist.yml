@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'enlightened_develop'
+      - 'enlightened_master'
       - 'modlist/**'
     paths:
       - MODLIST.md
