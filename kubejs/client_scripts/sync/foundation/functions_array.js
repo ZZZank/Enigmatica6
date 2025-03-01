@@ -1,4 +1,4 @@
-// priority: 1000
+// priority: 1005
 
 /**
  * @template T
@@ -17,16 +17,6 @@ function ensureSubArraySize(arrays, minSize, toFill) {
 }
 
 /**
- * arrow: width=24, height=17
- * @param {number} start
- * @param {number} width
- * @return {number}
- */
-function computeArrowPos(start, width) {
-    return start + width / 2 - 12;
-}
-
-/**
  * split an array into many `pages`
  *
  * example: the result of `splitArray([1,2,3,4,5,6,7], 3)` is `[[1,2,3],[4,5,6],[7]]`
@@ -36,9 +26,7 @@ function computeArrowPos(start, width) {
  * @return {T[][]}
  */
 function splitArray(arr, size) {
-    /** @type {T[][]} */
     const pages = [];
-    /** @type {T[]} */
     let page = [];
     const arrLen = arr.length;
     let counter = 0;

@@ -1,5 +1,7 @@
 // priority: 1000
 
+const air = 'minecraft:air';
+
 // priority of which mod output should come from, if applicable
 const modPriorities = [
     'emendatusenigmatica',
