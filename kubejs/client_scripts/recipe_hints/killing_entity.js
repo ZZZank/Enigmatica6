@@ -10,9 +10,7 @@ const { killing_entity_recipes, killing_entity_id } = (() => {
      */
     const recipes = [
         {
-            target: [
-                'ars_nouveau:glyph_filter_monster'
-            ],
+            target: ['ars_nouveau:glyph_filter_monster'],
             weapon: Item.of('minecraft:trident', {
                 nullptrType: 1,
                 Damage: 225,
