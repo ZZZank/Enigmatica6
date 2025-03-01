@@ -1,6 +1,6 @@
 // priority: 1005
 
-const air = "minecraft:air"
+const air = 'minecraft:air';
 
 /**
  * priority of which mod output should be preferred, if applicable
