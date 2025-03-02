@@ -1,3 +1,51 @@
+## Enlightened6 & Enlightened6Expert - 2.7.0 -> 2.8.0
+
+🚀 Forge-1.16.5-36.2.41 | [📜 Mod Updates](https://github.com/ZZZank/Enigmatica6Enlightened/blob/enlightened_master/changelogs/changelog_mods_2.8.0.md) | [📋 Modlist](https://github.com/ZZZank/Enigmatica6Enlightened/blob/enlightened_master/changelogs/modlist_2.8.0.md)
+
+### Added
+
+-   [Better Compatibility Checker](https://www.curseforge.com/minecraft/mc-mods/better-compatibility-checker) (by [Gaz\_](https://www.curseforge.com/members/Gaz_/projects))
+-   [Client Crafting](https://www.curseforge.com/minecraft/mc-mods/client-crafting) (by [someaddon](https://www.curseforge.com/members/someaddon/projects))
+-   [DataStructium](https://www.curseforge.com/minecraft/mc-mods/datastructium) (by [ZZZank](https://www.curseforge.com/members/ZZZank/projects))
+-   [EventJS](https://www.curseforge.com/minecraft/mc-mods/eventjs) (by [ZZZank](https://www.curseforge.com/members/ZZZank/projects))
+-   [Francium](https://www.curseforge.com/minecraft/mc-mods/francium) (by [pOtAto\_\_bOy](https://www.curseforge.com/members/pOtAto__bOy/projects))
+-   [KubeJEI](https://www.curseforge.com/minecraft/mc-mods/kubejei) (by [ZZZank](https://www.curseforge.com/members/ZZZank/projects))
+
+### Removed
+
+-   [Custom Machinery](https://www.curseforge.com/minecraft/mc-mods/custom-machinery) (by [frinn38](https://www.curseforge.com/members/frinn38/projects))
+-   [Redirector [Modern]](https://www.curseforge.com/minecraft/mc-mods/redirector) (by [pOtAto\_\_bOy](https://www.curseforge.com/members/pOtAto__bOy/projects))
+
+### 🌟 Improvements
+
+-   rewritten Recipe Hints
+    -   Recipe Hints are now implemented via KubeJEI, allowing for a cleaner and more dynamic recipe hint implementation
+-   fix output unifying, turns out `IngredientJS.getCount()` is NOT returning the count of matched item
+    -   this can fix issues like Create ore washing recipe outputing wrong type of nuggets
+-   remove `alcara` constellation crystal requirement in Constellation Box, make recipe looks a little bit better
+-   update building gadget pattern for Stellar Neutron Activator
+-   removed old shaped recipe for `bloodmagic:largebloodstonebrick`
+-   simpler NatureAura auto crafter recipe
+-   [expert] `redstone_arsenal:flux_gem_block` easier to craft
+-   trades flipping implemented via KubeJS
+    -   try remaning a villager to "Dinnerbone"
+-   ae2 singularity frequency will now be displayed on its tooltips
+-   reverted some fluid ingredient changes
+-   allow converting silicons via Mek Oredictionificator
+-   fix ae recipe in normal mode
+-   fix `mining_gadget_kit` recipe by using tank instead of buckets
+-   remove `'use strict'` in scripts, it's causing troubles in stupid Rhino
+-   fix Diamond Ore to Emerald Ore AS Transmutation recipe
+-   fix Integrated Dynamics facades cannot be crafted
+-   move more MM controller recipes to base En6
+-   prevent registering unused event handler early, should helps with performance
+-   unhide mctb tables, we provided stonecutter recipes for it
+-   zh_cn lang++
+-   fix Just ENough Resource JEI category via DataStructium
+-   fix late-game multiblock consuming large amount of performance (also via DataStructium)
+
+---
+
 ## Enlightened6 & Enlightened6Expert - 2.6.0 -> 2.7.0
 
 🚀 Forge-1.16.5-36.2.41 | [📜 Mod Updates](https://github.com/ZZZank/Enigmatica6Enlightened/blob/enlightened_master/changelogs/changelog_mods_2.7.0.md) | [📋 Modlist](https://github.com/ZZZank/Enigmatica6Enlightened/blob/enlightened_master/changelogs/modlist_2.7.0.md)
