@@ -77,7 +77,9 @@ $MODLIST_CREATOR_JAR = "ModListCreator-4.1.0-fatjar.jar"
 
 $CLIENT_FILE_AUTHOR = "zzz_zank"
 
-$FOLDERS_TO_INCLUDE_IN_CLIENT_FILES = @("building_gadgets_patterns",
+$FOLDERS_TO_INCLUDE_IN_CLIENT_FILES = @(
+	".probe",
+	"building_gadgets_patterns",
 	"config",
 	"defaultconfigs",
 	"kubejs",
@@ -165,7 +167,16 @@ $CONFIGS_TO_REMOVE_FROM_CLIENT_FILES = @(
 	"Mekanism/tools-client.toml"
 )
 
-$FOLDERS_TO_REMOVE_FROM_CLIENT_FILES = @("local/ftbutilities", "local/ftbchunks/data", "local/ftbultimine", "local/ftbultimine-client.snbt", "resourcepacks")
+$FOLDERS_TO_REMOVE_FROM_CLIENT_FILES = @(
+	".probe/client",
+	".probe/server",
+	".probe/startup",
+	"local/ftbutilities",
+	"local/ftbchunks/data",
+	"local/ftbultimine",
+	"local/ftbultimine-client.snbt",
+	"resourcepacks"
+)
 
 #=====================================================================//
 #  SERVER FILE SETTINGS

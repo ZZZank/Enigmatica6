@@ -337,6 +337,11 @@ function New-ServerFiles {
         Write-Host 
         Write-Host "Creating server files..." -ForegroundColor Cyan
         Write-Host 
+        if ($uploadExpertMode) {
+            Copy-Item -Path "$CLIENT_ZIP_NAME.zip" -Destination "server_files_expert\mainpack.zip" -ErrorAction SilentlyContinue
+        } else {
+            Copy-Item -Path "$CLIENT_ZIP_NAME.zip" -Destination "server_files\mainpack.zip" -ErrorAction SilentlyContinue
+        }
         7z a -tzip $serverZip "$SERVER_FILES_FOLDER/*"
         Move-Item -Path "automation/$serverZip" -Destination $serverZip -ErrorAction SilentlyContinue
         Write-Host "Server files created!" -ForegroundColor Green
