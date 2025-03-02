@@ -35,11 +35,11 @@ function Switch-DefaultModeTo {
         $defaultModeJson | ConvertTo-Json | Set-Content $defaultModeFilePath
     }
 
-    # Copy over Emendatus Enigmatica files to ensure they're present on first launch
-    $configswapperEmendatusEnigmaticaFolder = "$INSTANCE_ROOT/config/configswapper/$mode/config/emendatusenigmatica"
-    $emendatusEnigmaticaConfigFolder = "$INSTANCE_ROOT/config"
+    # # Copy over Emendatus Enigmatica files to ensure they're present on first launch
+    # $configswapperEmendatusEnigmaticaFolder = "$INSTANCE_ROOT/config/configswapper/$mode/config/emendatusenigmatica"
+    # $emendatusEnigmaticaConfigFolder = "$INSTANCE_ROOT/config"
 
-    Copy-Item -Path $configswapperEmendatusEnigmaticaFolder -Destination $emendatusEnigmaticaConfigFolder -Force -Recurse
+    # Copy-Item -Path $configswapperEmendatusEnigmaticaFolder -Destination $emendatusEnigmaticaConfigFolder -Force -Recurse
 }
 
 function Get-GitHubRelease {
@@ -459,16 +459,16 @@ switch ($mode) {
         ValidateSecretsFile
 
         if ($uploadExpertMode) {
-            $CURSEFORGE_PROJECT_ID = 882461
+            $CURSEFORGE_PROJECT_ID = 889901
             $SERVER_FILES_FOLDER = "$INSTANCE_ROOT/server_files_expert"
             $SERVER_SETUP_CONFIG_PATH = "$SERVER_FILES_FOLDER/server-setup-config.yaml"
-            $MODPACK_NAME = "Enigmatica9Expert"
-            $CLIENT_NAME = "Enigmatica9Expert"
+            $MODPACK_NAME = "Enlightened6Expert"
+            $CLIENT_NAME = "Enlightened6Expert"
             $CLIENT_ZIP_NAME = "$CLIENT_NAME-$MODPACK_VERSION"
             $SERVER_ZIP_NAME = "$CLIENT_NAME`Server-$MODPACK_VERSION"
             $LAST_MODPACK_ZIP_NAME = "$CLIENT_NAME-$LAST_MODPACK_VERSION"
-            $CLIENT_FILE_DISPLAY_NAME = "Enigmatica 9 Expert $MODPACK_VERSION"
-            $SERVER_FILE_DISPLAY_NAME = "Enigmatica 9 Expert Server $MODPACK_VERSION"
+            $CLIENT_FILE_DISPLAY_NAME = "Enlightened 6 Expert $MODPACK_VERSION"
+            $SERVER_FILE_DISPLAY_NAME = "Enlightened 6 Expert Server $MODPACK_VERSION"
 
             Switch-DefaultModeTo -mode "expert"
             Update-BetterCompatibilityCheckerVersion -mode "expert"
